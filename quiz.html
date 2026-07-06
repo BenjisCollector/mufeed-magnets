@@ -1,0 +1,264 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>خُد التقييم: وين إنت من الـAI؟ — يوسف مفيد</title>
+<meta name="description" content="٣ أسئلة، دقيقة وحدة. بنقللك وين إنت من الـAI هلأ، وشو أول خطوة تعملها بكرة عشان يشتغل لصالحك.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@500;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+ :root{--cream:#F4EFE2;--ink:#1A1614;--coral:#D97757;--muted:#7C736B;--paper:#fff;--soft:#FBF7EE;}
+ *{margin:0;box-sizing:border-box}
+ body{background:var(--cream);color:var(--ink);font-family:'Tajawal',sans-serif;font-weight:500;line-height:1.7;padding:22px}
+ .wrap{max-width:620px;margin:0 auto}
+ .kick{display:inline-block;background:var(--coral);color:#fff;font-family:'IBM Plex Mono';font-weight:700;padding:6px 14px;border:3px solid var(--ink);border-radius:8px;box-shadow:3px 3px 0 var(--ink);font-size:13px;letter-spacing:.5px}
+ h1{font-family:'Cairo';font-weight:900;font-size:clamp(28px,6.5vw,42px);line-height:1.14;margin:16px 0 8px}
+ h1 .hl{color:var(--coral)}
+ .sub{font-weight:700;color:var(--muted);font-size:clamp(15px,2.6vw,18px);margin-bottom:22px}
+
+ /* progress */
+ .prog{display:flex;gap:8px;margin:0 0 22px}
+ .prog i{flex:1;height:12px;border:3px solid var(--ink);border-radius:6px;background:var(--paper)}
+ .prog i.on{background:var(--coral)}
+
+ /* question card */
+ .card{background:var(--paper);border:4px solid var(--ink);border-radius:16px;box-shadow:8px 8px 0 var(--ink);padding:24px 22px 22px;position:relative}
+ .qnum{position:absolute;top:-16px;inset-inline-end:18px;background:var(--coral);color:#fff;font-family:'IBM Plex Mono';font-weight:700;font-size:16px;height:44px;padding:0 12px;display:flex;align-items:center;justify-content:center;border:4px solid var(--ink);border-radius:12px;box-shadow:3px 3px 0 var(--ink);direction:ltr}
+ .card h2{font-family:'Cairo';font-weight:800;font-size:clamp(20px,4.5vw,26px);margin-bottom:18px;padding-inline-end:70px}
+ .opts{display:flex;flex-direction:column;gap:14px}
+ .opt{display:block;width:100%;text-align:start;background:var(--soft);border:3.5px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);padding:16px 18px;font-family:'Tajawal';font-weight:700;font-size:clamp(16px,3.4vw,18px);color:var(--ink);cursor:pointer;transition:transform .05s,background .1s;line-height:1.5}
+ .opt:hover{background:#F1E7DA}
+ .opt:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+ .opt b{font-family:'Cairo';font-weight:800}
+
+ /* result */
+ .lede{background:var(--ink);color:var(--cream);border:4px solid var(--ink);border-radius:14px;box-shadow:7px 7px 0 var(--coral);padding:18px 20px;font-weight:700;font-size:clamp(16px,3.4vw,18px);margin:0 0 24px}
+ .type-tag{display:inline-block;background:var(--coral);color:#fff;font-family:'IBM Plex Mono';font-weight:700;font-size:13px;padding:5px 12px;border:3px solid var(--ink);border-radius:8px;box-shadow:3px 3px 0 var(--ink);margin-bottom:12px;direction:rtl}
+ .plan{background:var(--paper);border:4px solid var(--ink);border-radius:16px;box-shadow:8px 8px 0 var(--ink);padding:22px;margin-bottom:22px}
+ .plan h3{font-family:'Cairo';font-weight:800;font-size:20px;margin-bottom:14px}
+ .plan ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+ .plan li{display:flex;gap:12px;font-weight:600;font-size:16px;align-items:flex-start;line-height:1.55}
+ .plan li .ck{flex:none;width:28px;height:28px;background:var(--coral);color:#fff;border:3px solid var(--ink);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;box-shadow:2px 2px 0 var(--ink)}
+ .plan b{font-weight:800}
+
+ .path{background:#FBEDE6;border:4px solid var(--ink);border-radius:16px;box-shadow:8px 8px 0 var(--coral);padding:20px;margin-bottom:24px}
+ .path .lbl{font-family:'IBM Plex Mono';font-weight:700;color:var(--coral);font-size:13px;letter-spacing:.5px;display:block;margin-bottom:8px}
+ .path h3{font-family:'Cairo';font-weight:800;font-size:21px;margin-bottom:8px;line-height:1.25}
+ .path p{font-weight:600;font-size:15.5px}
+
+ /* email capture */
+ .capture{background:var(--paper);border:4px solid var(--ink);border-radius:16px;box-shadow:8px 8px 0 var(--ink);padding:24px 22px}
+ .capture h3{font-family:'Cairo';font-weight:900;font-size:clamp(20px,4.5vw,24px);line-height:1.2;margin-bottom:6px}
+ .capture h3 .hl{color:var(--coral)}
+ .capture .promise{font-weight:700;color:var(--muted);font-size:15.5px;margin-bottom:16px}
+ .capture form{display:flex;flex-direction:column;gap:12px}
+ .capture input[type=email]{width:100%;font-family:'Tajawal';font-weight:700;font-size:17px;padding:14px 16px;border:3.5px solid var(--ink);border-radius:12px;background:var(--soft);color:var(--ink);direction:ltr;text-align:left}
+ .capture input[type=email]::placeholder{color:var(--muted)}
+ .capture input[type=email]:focus{outline:none;background:#fff;box-shadow:4px 4px 0 var(--coral)}
+ .submit{background:var(--coral);color:#fff;font-family:'Cairo';font-weight:800;font-size:19px;border:4px solid var(--ink);border-radius:12px;box-shadow:5px 5px 0 var(--ink);padding:14px 22px;cursor:pointer;transition:transform .05s}
+ .submit:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+ .fineprint{font-family:'IBM Plex Mono';font-weight:500;color:var(--muted);font-size:11.5px;text-align:center;margin-top:4px}
+ .thanks{display:none;text-align:center;padding:6px 0}
+ .thanks .big{font-family:'Cairo';font-weight:900;font-size:26px;margin-bottom:8px}
+ .thanks .big .hl{color:var(--coral)}
+ .thanks p{font-weight:700;font-size:16px;color:var(--muted)}
+
+ .retry{display:inline-block;margin-top:20px;background:transparent;color:var(--muted);font-family:'IBM Plex Mono';font-weight:600;font-size:13px;border:none;cursor:pointer;text-decoration:underline;direction:rtl}
+
+ .foot{text-align:center;margin-top:28px;font-family:'IBM Plex Mono';font-weight:600;color:var(--muted);font-size:13px;direction:ltr}
+ .foot b{color:var(--ink)}
+ b,strong{font-weight:800}
+ .hidden{display:none}
+</style></head><body>
+<div class="wrap">
+
+ <!-- ===== INTRO / QUESTIONS ===== -->
+ <div id="quiz">
+  <span class="kick">مُفيد · تقييم الـAI</span>
+  <h1>خُد التقييم: <span class="hl">وين إنت من الـAI؟</span></h1>
+  <div class="sub">٣ أسئلة، دقيقة وحدة. وبنقللك وين إنت بالظبط، وشو أول خطوة تعملها عشان الـAI يشتغل لصالحك.</div>
+
+  <div class="prog"><i id="d0" class="on"></i><i id="d1"></i><i id="d2"></i></div>
+
+  <!-- Q1 -->
+  <div class="card" id="q0">
+   <span class="qnum">السؤال ١</span>
+   <h2>مين إنت؟</h2>
+   <div class="opts">
+    <button class="opt" onclick="pick(0,'owner')"><b>صاحب شركة أو عامل حر.</b> الشغل قايم عليّي أنا.</button>
+    <button class="opt" onclick="pick(0,'employee')"><b>موظف.</b> بشتغل عند حدا.</button>
+   </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="card hidden" id="q1">
+   <span class="qnum">السؤال ٢</span>
+   <h2>أكبر وجع عندك بالشغل؟</h2>
+   <div class="opts">
+    <button class="opt" onclick="pick(1,'owner')"><b>كل شي بيوقف لما أوقف.</b> الشغل كله معلّق فيّي، وما بقدر أفكّ عنه.</button>
+    <button class="opt" onclick="pick(1,'employee')"><b>مدفون بالشغل الممل.</b> بشتغل ساعات زيادة عشان مهمات بتتكرر كل يوم.</button>
+   </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="card hidden" id="q2">
+   <span class="qnum">السؤال ٣</span>
+   <h2>لو الـAI عمللك إشي واحد بكرة، شو بتختار؟</h2>
+   <div class="opts">
+    <button class="opt" onclick="pick(2,'owner')"><b>عقل ثاني للشركة.</b> بيعرف كل تفاصيل شغلي، وبيشتغل لما أكون أنا مش موجود.</button>
+    <button class="opt" onclick="pick(2,'employee')"><b>عقل ثاني إلي أنا.</b> بيخلّص عني الشغل الممل، وبيرجّعلي ساعاتي.</button>
+   </div>
+  </div>
+ </div>
+
+ <!-- ===== RESULT ===== -->
+ <div id="result" class="hidden">
+  <span class="kick">النتيجة تبعتك 🎯</span>
+  <h1 id="r-title"></h1>
+  <div class="lede" id="r-lede"></div>
+
+  <div class="plan">
+   <h3>خطة الـAI تبعتك</h3>
+   <ul id="r-plan"></ul>
+  </div>
+
+  <div class="path">
+   <span class="lbl" id="r-pathlbl"></span>
+   <h3 id="r-pathtitle"></h3>
+   <p id="r-pathdesc"></p>
+  </div>
+
+  <div class="capture">
+   <form id="capform" onsubmit="return grab(event)">
+    <h3 id="cap-h"></h3>
+    <div class="promise" id="cap-promise"></div>
+    <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
+    <input type="hidden" id="seg" name="seg" value="">
+    <button type="submit" class="submit" id="cap-btn"></button>
+    <div class="fineprint">إيميل واحد بس. بدون كلمة سر، بدون رموز تحقق. بتقدر تلغي بأي وقت.</div>
+   </form>
+   <div class="thanks" id="thanks">
+    <div class="big">وصلك <span class="hl">✓</span></div>
+    <p id="thanks-p"></p>
+   </div>
+  </div>
+
+  <div style="text-align:center"><button class="retry" onclick="restart()">↻ ابدأ التقييم من جديد</button></div>
+ </div>
+
+ <div class="foot"><b>AI Mufeed</b> · @yusufmufeed · مفيد يعني مفيد.</div>
+</div>
+
+<script>
+ var answers=[null,null,null];
+
+ function pick(q,val){
+   answers[q]=val;
+   // advance
+   document.getElementById('q'+q).classList.add('hidden');
+   if(q<2){
+     document.getElementById('q'+(q+1)).classList.remove('hidden');
+     document.getElementById('d'+(q+1)).classList.add('on');
+   }else{
+     showResult();
+   }
+ }
+
+ function showResult(){
+   // segment: majority of owner-vs-employee signals; Q1 (who you are) is the tiebreaker.
+   var owner=0, employee=0;
+   answers.forEach(function(a){ if(a==='owner')owner++; else if(a==='employee')employee++; });
+   var seg = (owner>employee) ? 'owner' : (employee>owner) ? 'employee' : answers[0];
+
+   var data = seg==='owner' ? OWNER : EMPLOYEE;
+
+   document.getElementById('r-title').innerHTML = data.title;
+   document.getElementById('r-lede').innerHTML = data.lede;
+   var ul=document.getElementById('r-plan'); ul.innerHTML='';
+   data.plan.forEach(function(item){
+     var li=document.createElement('li');
+     li.innerHTML='<span class="ck">✓</span><span>'+item+'</span>';
+     ul.appendChild(li);
+   });
+   document.getElementById('r-pathlbl').textContent=data.pathLbl;
+   document.getElementById('r-pathtitle').innerHTML=data.pathTitle;
+   document.getElementById('r-pathdesc').innerHTML=data.pathDesc;
+   document.getElementById('cap-h').innerHTML=data.capH;
+   document.getElementById('cap-promise').innerHTML=data.capPromise;
+   document.getElementById('cap-btn').textContent=data.capBtn;
+   document.getElementById('seg').value=seg;
+   document.getElementById('thanks-p').textContent=data.thanks;
+
+   // reflect segment in the URL so it can be wired to ManyChat / email later
+   try{
+     var u=new URL(window.location.href);
+     u.searchParams.set('seg',seg);
+     window.history.replaceState({},'',u);
+   }catch(e){}
+
+   document.getElementById('quiz').classList.add('hidden');
+   document.getElementById('result').classList.remove('hidden');
+   window.scrollTo({top:0,behavior:'smooth'});
+ }
+
+ function grab(e){
+   e.preventDefault();
+   // Capture point: the email + hidden seg field are ready to POST to ManyChat/an email tool.
+   // For now we just confirm and stash locally; wire the form action later.
+   var email=document.getElementById('email').value;
+   var seg=document.getElementById('seg').value;
+   try{ localStorage.setItem('mufeed_lead', JSON.stringify({email:email,seg:seg,ts:Date.now()})); }catch(e){}
+   document.getElementById('capform').style.display='none';
+   document.getElementById('thanks').style.display='block';
+   return false;
+ }
+
+ function restart(){
+   answers=[null,null,null];
+   document.getElementById('result').classList.add('hidden');
+   document.getElementById('quiz').classList.remove('hidden');
+   for(var i=0;i<3;i++){
+     document.getElementById('q'+i).classList.add('hidden');
+     document.getElementById('d'+i).classList.remove('on');
+   }
+   document.getElementById('q0').classList.remove('hidden');
+   document.getElementById('d0').classList.add('on');
+   document.getElementById('capform').style.display='block';
+   document.getElementById('thanks').style.display='none';
+   document.getElementById('email').value='';
+   window.scrollTo({top:0,behavior:'smooth'});
+ }
+
+ /* ===== RESULT CONTENT ===== */
+ var OWNER={
+   title:'إنت <span class="hl">صاحب شغل، والشغل قايم عليك.</span>',
+   lede:'المشكلة مش إنك مش شاطر. المشكلة إنه كل شي بعقلك إنت، فلما توقف، الشغل بيوقف. الـAI ما بحلّها لما يكون «مساعد شخصي» إلك، بيحلّها لما يصير <b>عقل ثاني للشركة</b> بيعرف تفاصيلها زيّك.',
+   plan:[
+     'اكتب كل اللي بعقلك عن الشغل بمكان واحد: مين بيعمل شو، كيف بترد على الزباين، وشو خطوات كل شغلة بتتكرر. هاي أول لبنة للعقل الثاني.',
+     'خُد أكتر شغلة بتاكل من وقتك (الرد على الزباين مثلاً) وحطلها خطوات واضحة، عشان الـAI يقدر يمشي عليها بدونك.',
+     'جرّب توكّل مهمة وحدة كاملة للـAI هالأسبوع، ما تساعده فيها، خلّيه يخلّصها لحاله وشوف وين بيوقف.'
+   ],
+   pathLbl:'المسار المناسب إلك',
+   pathTitle:'العقل الثاني للشركة',
+   pathDesc:'نظام AI بيعرف شركتك كلها، وبيشتغل ويرد ويطلّع شغل حتى وإنت مش موجود. هاد اللي بيفكّك عن الشغل، وبيخليه يمشي بدونك.',
+   capH:'بدك <span class="hl">أول خطوة عملية</span> تبني فيها العقل الثاني؟',
+   capPromise:'بعتلك دليل مختصر: شو تكتب أول، وشو تأتمن الـAI عليه أول عشان تبلّش تفكّ الشغل عنك، بدون تعقيد.',
+   capBtn:'ابعتلي الدليل',
+   thanks:'الدليل رح يوصلك عالإيميل. جهّز حالك تبلّش تفكّ الشغل عنك.'
+ };
+
+ var EMPLOYEE={
+   title:'إنت <span class="hl">موظف مدفون بالشغل الممل.</span>',
+   lede:'مش المشكلة إنك بطيء. المشكلة إنك عم تعمل بإيدك شغل بيتكرر كل يوم وممكن الـAI يعمله عنك. الـAI هون بيصير <b>عقل ثاني إلك إنت</b>، بياخد المهمات المملة ويرجّعلك ساعاتك.',
+   plan:[
+     'اكتب ٣ مهمات بتعملها كل يوم وبتزهقك (تلخيص، رد إيميلات، تعبئة تقارير). هدول أول اللي بتوكّلهم للـAI.',
+     'خُد وحدة منهم بس، وعلّم الـAI كيف تعملها متل ما بتعملها إنت بالظبط، مرة وحدة، وبعدها بيعملها لحاله.',
+     'احسب كم ساعة رجعتلك بالأسبوع. لما تشوف الرقم، رح تعرف ليش هاي أهم مهارة تتعلّمها هلأ.'
+   ],
+   pathLbl:'المسار المناسب إلك',
+   pathTitle:'العقل الثاني الشخصي',
+   pathDesc:'نظام AI شخصي بياخد عنك الشغل الممل المتكرر، فبتخلّص أسرع وبترجعلك ساعاتك. مش عشان تشتغل أكتر، عشان تشتغل أقل وأذكى.',
+   capH:'بدك <span class="hl">أول خطوة عملية</span> تبني فيها عقلك الثاني؟',
+   capPromise:'بعتلك دليل مختصر: شو أول ٣ مهمات توكّلهم للـAI هالأسبوع، وكيف، عشان تبلّش ترجّع ساعاتك من بكرة.',
+   capBtn:'ابعتلي الدليل',
+   thanks:'الدليل رح يوصلك عالإيميل. جهّز حالك ترجّع ساعاتك.'
+ };
+</script>
+</body></html>
