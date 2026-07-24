@@ -1,0 +1,285 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دليل: كل اشتراك بتدفعه شهريًا، وكيف تعمله بالـAI ببلاش — يوسف مفيد</title>
+<meta name="description" content="الليستة الكاملة: أكثر من ١٢ اشتراك شهري بتدفع فيه، وكل واحد فيه البديل المجاني بالذكاء الاصطناعي + أمر جاهز تنسخه وتشغّله هلأ.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@500;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+ :root{--cream:#F0EEE6;--ink:#141413;--coral:#D97757;--muted:#73726C;--paper:#fff;--soft:#FBF7EE;--green:#3E7C4F;}
+ *{margin:0;box-sizing:border-box}
+ body{background:var(--cream);color:var(--ink);font-family:'Tajawal',sans-serif;font-weight:500;line-height:1.7;padding:20px 16px}
+ .wrap{max-width:720px;margin:0 auto}
+ .kick{display:inline-block;background:var(--coral);color:#fff;font-family:'IBM Plex Mono';font-weight:700;padding:6px 14px;border:3px solid var(--ink);border-radius:8px;box-shadow:3px 3px 0 var(--ink);font-size:12.5px;letter-spacing:.4px}
+ h1{font-family:'Cairo';font-weight:900;font-size:clamp(28px,6.6vw,44px);line-height:1.12;margin:16px 0 10px}
+ h1 .hl{color:var(--coral)}
+ .sub{font-weight:700;color:var(--muted);font-size:clamp(15px,2.6vw,18px);margin-bottom:10px}
+ .lede{background:var(--ink);color:var(--cream);border:4px solid var(--ink);border-radius:14px;box-shadow:7px 7px 0 var(--coral);padding:16px 18px;font-weight:700;font-size:16.5px;margin:22px 0 14px}
+ .lede .big{font-family:'Cairo';font-weight:900;color:var(--coral);font-size:22px}
+ .howto{background:#FBEDE6;border:3px solid var(--ink);border-radius:12px;padding:12px 16px;font-size:14.5px;font-weight:700;margin-bottom:30px}
+ .card{background:var(--paper);border:4px solid var(--ink);border-radius:16px;box-shadow:8px 8px 0 var(--ink);padding:20px 18px 18px;margin-bottom:24px;position:relative}
+ .card .num{position:absolute;top:-15px;inset-inline-end:16px;background:var(--ink);color:#fff;font-family:'IBM Plex Mono';font-weight:700;font-size:15px;min-width:40px;height:40px;padding:0 8px;display:flex;align-items:center;justify-content:center;border:3px solid var(--ink);border-radius:11px;box-shadow:3px 3px 0 var(--coral);direction:ltr}
+ .toolrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:4px;padding-inline-end:48px}
+ .toolname{font-family:'IBM Plex Mono';font-weight:700;font-size:19px;color:var(--ink);direction:ltr;unicode-bidi:isolate}
+ .price{font-family:'IBM Plex Mono';font-weight:600;font-size:12.5px;color:#fff;background:var(--muted);padding:3px 9px;border-radius:20px;direction:ltr;unicode-bidi:isolate}
+ .cat{font-weight:700;color:var(--muted);font-size:14.5px;margin-bottom:12px}
+ .pay,.free{font-size:15.5px;margin-bottom:6px}
+ .pay b,.free b{font-family:'Cairo';font-weight:800}
+ .free b{color:var(--green)}
+ .tag{display:inline-block;font-family:'Cairo';font-weight:800;font-size:12px;color:#fff;padding:2px 9px;border-radius:6px;margin-inline-start:2px;transform:translateY(-1px)}
+ .tag.pay{background:#B4534A}
+ .tag.free{background:var(--green)}
+ .promptbox{background:var(--soft);border:3px solid var(--ink);border-radius:12px;padding:14px;margin-top:12px}
+ .promptbox .lbl{font-family:'Cairo';font-weight:800;font-size:14px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+ .promptbox .lbl::before{content:'⌨';font-size:15px}
+ .prompt{font-family:'IBM Plex Mono';font-weight:500;font-size:13px;line-height:1.65;white-space:pre-wrap;background:#fff;border:2.5px dashed var(--muted);border-radius:10px;padding:13px;margin-bottom:11px}
+ .copybtn{background:var(--coral);color:#fff;font-family:'Cairo';font-weight:800;font-size:15.5px;border:3px solid var(--ink);border-radius:10px;box-shadow:3px 3px 0 var(--ink);padding:9px 20px;cursor:pointer;transition:transform .05s,box-shadow .05s}
+ .copybtn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+ .copybtn.done{background:var(--green)}
+ b,strong{font-weight:800}
+ .divider{text-align:center;font-family:'Cairo';font-weight:900;color:var(--coral);font-size:15px;margin:6px 0 20px;letter-spacing:1px}
+ .note{border:4px solid var(--ink);border-radius:16px;background:#FBEDE6;box-shadow:8px 8px 0 var(--coral);padding:18px 20px;margin:30px 0 24px;font-size:15.5px}
+ .note b{font-family:'Cairo'}
+ .cta{text-align:center;margin:30px 0 8px}
+ .cta .punch{font-family:'Cairo';font-weight:900;font-size:clamp(23px,5vw,33px);line-height:1.22}
+ .cta .punch .hl{color:var(--coral)}
+ .cta .soft{font-weight:700;color:var(--muted);font-size:15.5px;margin:14px auto 0;max-width:520px}
+ .follow{display:inline-block;margin-top:18px;background:var(--coral);color:#fff;font-family:'Cairo';font-weight:800;font-size:18px;text-decoration:none;padding:13px 26px;border:4px solid var(--ink);border-radius:12px;box-shadow:5px 5px 0 var(--ink)}
+ .foot{text-align:center;margin-top:26px;font-family:'IBM Plex Mono';font-weight:600;color:var(--muted);font-size:12.5px;direction:ltr}
+ .foot b{color:var(--ink)}
+</style></head><body>
+<div class="wrap">
+
+  <span class="kick">مُفيد · دليل «كلها ببلاش»</span>
+  <h1>كل اشتراك بتدفعه بالشهر،<br><span class="hl">وكيف تعمله بالـAI ببلاش</span></h1>
+  <div class="sub">بالفيديو حكيتلك عن ٧. هاي الليستة الكاملة — أكثر من ١٢ أداة بتدفع فيها كل شهر، وكل وحدة إلها بديل مجاني بالذكاء الاصطناعي، مع أمر جاهز تنسخه وتشغّله هلأ.</div>
+
+  <div class="lede">اجمع كل الاشتراكات اللي تحت مع بعض: <span class="big">أكثر من ١٥٠ دولار بالشهر</span> رايحة عالفاضي. كلها، كل وحدة فيهم، بتعملها ببلاش. عِد معي كم وحدة منهم عم تدفع حقها من جيبك.</div>
+
+  <div class="howto"><b>كيف تستعملها:</b> افتح Claude (claude.ai) أو أي أداة AI مجانية، انسخ الأمر اللي جنب كل أداة، والصقه. خلص. ما بدك حساب مدفوع ولا بطاقة.</div>
+
+  <!-- 1 -->
+  <div class="card"><span class="num">01</span>
+   <div class="toolrow"><span class="toolname">Grammarly</span><span class="price">~$12/mo</span></div>
+   <div class="cat">تصحيح وتحسين كتابتك بالإنجليزي</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> اشتراك شهري عشان يصلّح قواعدك وينمّق إيميلاتك.</div>
+   <div class="free"><span class="tag free">ببلاش</span> <b>Claude</b> بيصحّح ويحسّن أي نص إنجليزي، وبيقللك شو غيّر وليش.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز</span>
+     <div class="prompt" id="p1">صحّح القواعد والإملاء بهذا النص الإنجليزي، وخلّيه يبيّن احترافي وطبيعي مش متكلّف. بعد التصحيح، عطيني قائمة قصيرة بأهم الأشياء اللي غيّرتها وليش:
+
+[الصق نصك هون]</div>
+     <button class="copybtn" onclick="cp('p1',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="card"><span class="num">02</span>
+   <div class="toolrow"><span class="toolname">QuillBot</span><span class="price">~$10/mo</span></div>
+   <div class="cat">إعادة صياغة النصوص (Paraphrasing)</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> عشان يعيد صياغة فقراتك بأسلوب أوضح.</div>
+   <div class="free"><span class="tag free">ببلاش</span> <b>Claude</b> بيعيدلك الصياغة بأكثر من نسخة وبأي نبرة بدك ياها.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز</span>
+     <div class="prompt" id="p2">أعد صياغة هذا النص بأسلوب أوضح وأقصر مع الحفاظ على نفس المعنى تماماً. عطيني ٣ نسخ: وحدة رسمية، وحدة ودّية، ووحدة مختصرة جداً:
+
+[الصق النص هون]</div>
+     <button class="copybtn" onclick="cp('p2',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="card"><span class="num">03</span>
+   <div class="toolrow"><span class="toolname">Zoom / Otter.ai</span><span class="price">~$14/mo</span></div>
+   <div class="cat">تفريغ وتلخيص الاجتماعات</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> الخطة المدفوعة عشان تفرّغ الاجتماع وتطلّع منه ملخص ومهام.</div>
+   <div class="free"><span class="tag free">ببلاش</span> فرّغ الصوت مجاناً (فيه أدوات مجانية زي MacWhisper)، وبعدين خلّي <b>Claude</b> يطلّعلك القرارات والمهام.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز</span>
+     <div class="prompt" id="p3">هذا تفريغ اجتماع. طلّعلي منه بشكل منظّم:
+١) أهم القرارات اللي انتخذت.
+٢) المهام، ومين المسؤول عن كل وحدة، وتاريخ تسليمها.
+٣) النقاط اللي ضلّت مفتوحة وبدها متابعة.
+
+[الصق تفريغ الاجتماع هون]</div>
+     <button class="copybtn" onclick="cp('p3',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card"><span class="num">04</span>
+   <div class="toolrow"><span class="toolname">Freepik / Shutterstock</span><span class="price">~$15/mo</span></div>
+   <div class="cat">صور ورسومات (Stock &amp; design)</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> اشتراك عشان تحمّل صور جاهزة.</div>
+   <div class="free"><span class="tag free">ببلاش</span> ولّد الصورة اللي بدك ياها بالظبط بأدوات مجانية زي <b>Microsoft Designer</b> أو <b>Gemini</b>. استعمل الأمر التالي كوصف للصورة.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز (الصقه بمولّد الصور)</span>
+     <div class="prompt" id="p4">صورة احترافية لـ [اوصف اللي بدك ياه: مثلاً «مكتب عصري فيه لابتوب وفنجان قهوة، إضاءة دافئة»]، بأسلوب نظيف وحديث، ألوان [حدّد الألوان]، بدون نصوص، جودة عالية.</div>
+     <button class="copybtn" onclick="cp('p4',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="card"><span class="num">05</span>
+   <div class="toolrow"><span class="toolname">Duolingo Super</span><span class="price">~$7/mo</span></div>
+   <div class="cat">تعلّم اللغات</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> عشان دروس بدون إعلانات.</div>
+   <div class="free"><span class="tag free">ببلاش</span> <b>Claude</b> بيصير مدرّسك الشخصي: بيحكي معك، بيصحّح غلطاتك، وبيمشي على مستواك إنت.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز</span>
+     <div class="prompt" id="p5">بدي أتعلّم إنجليزي، مستواي [مبتدئ / متوسط]. اعمل معي محادثة يومية بمواضيع من الحياة اليومية. بعد كل جملة بكتبها، صحّحلي غلطاتي بلطف واشرحلي ليش. وبآخر كل جلسة، علّمني ٥ كلمات جديدة مع أمثلة. يلا نبلّش هلأ.</div>
+     <button class="copybtn" onclick="cp('p5',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="card"><span class="num">06</span>
+   <div class="toolrow"><span class="toolname">Notion AI</span><span class="price">~$10/mo</span></div>
+   <div class="cat">تنظيم وتلخيص الملاحظات</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> إضافة شهرية فوق اشتراكك عشان الـAI ينظّم ملاحظاتك.</div>
+   <div class="free"><span class="tag free">ببلاش</span> <b>Claude</b> بينظّم أي ملاحظات مبعثرة ويلخّصلك ياها.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز</span>
+     <div class="prompt" id="p6">هاي ملاحظات مبعثرة كتبتها بسرعة. نظّمها إلي بعناوين ونقاط واضحة، وشيل التكرار، وبالآخر عطيني ملخص من ٣ أسطر لأهم إشي:
+
+[الصق ملاحظاتك هون]</div>
+     <button class="copybtn" onclick="cp('p6',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="card"><span class="num">07</span>
+   <div class="toolrow"><span class="toolname">Todoist Pro</span><span class="price">~$4/mo</span></div>
+   <div class="cat">تنظيم المهام واليوم</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> عشان مميزات إضافية بتنظيم مهامك.</div>
+   <div class="free"><span class="tag free">ببلاش</span> خلّي <b>Claude</b> يرتّبلك يومك بجدول واقعي، واستعمل أي تطبيق مهام مجاني.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز</span>
+     <div class="prompt" id="p7">هاي مهامي لليوم. رتّبهم إلي حسب الأهمية والاستعجال، واعملي جدول واقعي من الساعة ٩ الصبح للساعة ٥. خلّي وقت للراحة، وحطّ أصعب مهمة بوقت تركيزي الأعلى:
+
+[اكتب مهامك هون]</div>
+     <button class="copybtn" onclick="cp('p7',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="card"><span class="num">08</span>
+   <div class="toolrow"><span class="toolname">Fiverr / Upwork</span><span class="price">لكل طلب</span></div>
+   <div class="cat">كتابة وتصميم بسيط</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> لكل منشور أو إيميل أو وصف منتج بتطلبه من فريلانسر.</div>
+   <div class="free"><span class="tag free">ببلاش</span> الشغلات البسيطة اعملها بنفسك بـ<b>Claude</b> بدقايق.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز</span>
+     <div class="prompt" id="p8">اكتبلي [منشور / إيميل / وصف منتج] عن [الموضوع]، بأسلوب [احترافي / ودّي / حماسي]، بالعربي، موجّه لـ [مين الجمهور]. عطيني ٣ نسخ مختلفة أختار منهم:
+
+[التفاصيل هون]</div>
+     <button class="copybtn" onclick="cp('p8',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="card"><span class="num">09</span>
+   <div class="toolrow"><span class="toolname">DeepL Pro</span><span class="price">~$9/mo</span></div>
+   <div class="cat">الترجمة</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> عشان ترجمة بدون حدود.</div>
+   <div class="free"><span class="tag free">ببلاش</span> <b>Claude</b> بيترجم ترجمة بتفهم السياق، مش حرفية، وبتحافظ على نبرتك.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز</span>
+     <div class="prompt" id="p9">ترجم هذا النص من [العربي] إلى [الإنجليزي]. بدي ترجمة طبيعية زي ما ابن اللغة بيحكي، مش ترجمة حرفية، وحافظ على نفس النبرة الرسمية/الودّية:
+
+[الصق النص هون]</div>
+     <button class="copybtn" onclick="cp('p9',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="card"><span class="num">10</span>
+   <div class="toolrow"><span class="toolname">Gamma / Canva Pro</span><span class="price">~$16/mo</span></div>
+   <div class="cat">صنع العروض التقديمية</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> عشان تعمل بريزنتيشن بالـAI.</div>
+   <div class="free"><span class="tag free">ببلاش</span> خلّي <b>Claude</b> يكتبلك محتوى الشرائح كامل، وحطّه بـ<b>Gamma</b> المجاني أو Google Slides.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز</span>
+     <div class="prompt" id="p10">اعملي محتوى عرض تقديمي من ٨ شرائح عن [الموضوع]، موجّه لـ [مين الجمهور]. لكل شريحة عطيني: عنوان قصير + ٣ نقاط + فكرة صورة تناسبها. خلّي أول شريحة خطّاف قوي وآخر شريحة خلاصة وخطوة تالية:
+
+[الموضوع والتفاصيل هون]</div>
+     <button class="copybtn" onclick="cp('p10',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="card"><span class="num">11</span>
+   <div class="toolrow"><span class="toolname">ChatPDF</span><span class="price">~$5/mo</span></div>
+   <div class="cat">الدردشة مع ملفات PDF</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> عشان تسأل أسئلة على ملف طويل.</div>
+   <div class="free"><span class="tag free">ببلاش</span> <b>Claude</b> بيقرا الـPDF مباشرة (ارفعه بالمحادثة) وبيجاوبك على أي سؤال.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز (ارفع الـPDF أول)</span>
+     <div class="prompt" id="p11">هذا ملف PDF. اقرأه ولخّصلي إياه بنقاط واضحة، وطلّعلي أهم ٥ معلومات، وأي أرقام أو تواريخ مهمة. وبعدين خليني أسألك أسئلة عليه.</div>
+     <button class="copybtn" onclick="cp('p11',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="card"><span class="num">12</span>
+   <div class="toolrow"><span class="toolname">Zety / Enhancv</span><span class="price">~$8/mo</span></div>
+   <div class="cat">بناء السيرة الذاتية (CV)</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> عشان تحمّل سيرتك الذاتية بعد ما تعملها.</div>
+   <div class="free"><span class="tag free">ببلاش</span> <b>Claude</b> بيكتبلك سيرة احترافية مظبوطة لأي وظيفة.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز</span>
+     <div class="prompt" id="p12">هاي خبرتي ومهاراتي: [الصقهم هون]. اكتبلي سيرة ذاتية احترافية وواضحة، مظبوطة لوظيفة [المسمّى الوظيفي]. خلّي نقاط الإنجازات تبدأ بأفعال قوية وفيها أرقام كل ما بتقدر، وخلّيها صفحة وحدة.</div>
+     <button class="copybtn" onclick="cp('p12',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="card"><span class="num">13</span>
+   <div class="toolrow"><span class="toolname">Jasper / Copy.ai</span><span class="price">~$39/mo</span></div>
+   <div class="cat">كتابة كابشنات ومحتوى سوشيال</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> اشتراك غالي عشان تكتب محتوى تسويقي.</div>
+   <div class="free"><span class="tag free">ببلاش</span> <b>Claude</b> بيكتبلك كابشنات وخطّافات بأي لهجة بدك ياها.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز</span>
+     <div class="prompt" id="p13">اكتبلي ٥ كابشنات إنستقرام عن [الموضوع]، بالعربي العامي. خلّي كل وحدة تبلّش بخطّاف قوي بأول سطر يوقّف السكرول. بالآخر عطيني ٥ هاشتاقات مناسبة:
+
+[الموضوع هون]</div>
+     <button class="copybtn" onclick="cp('p13',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="card"><span class="num">14</span>
+   <div class="toolrow"><span class="toolname">Eightify (YouTube)</span><span class="price">~$5/mo</span></div>
+   <div class="cat">تلخيص فيديوهات يوتيوب الطويلة</div>
+   <div class="pay"><span class="tag pay">بتدفع</span> عشان يلخّصلك فيديو ساعة بدقيقة.</div>
+   <div class="free"><span class="tag free">ببلاش</span> خُد النص المكتوب للفيديو (Transcript من تحت الفيديو بيوتيوب) والصقه لـ<b>Claude</b>.</div>
+   <div class="promptbox">
+     <span class="lbl">الأمر الجاهز</span>
+     <div class="prompt" id="p14">هذا نص فيديو يوتيوب. لخّصلي أهم الأفكار بنقاط مرتّبة، وطلّعلي الخلاصة اللي بستفيد منها في ٣ أسطر بالآخر:
+
+[الصق نص الفيديو هون]</div>
+     <button class="copybtn" onclick="cp('p14',this)">📋 انسخ الأمر</button>
+   </div>
+  </div>
+
+  <div class="divider">◆ ◆ ◆</div>
+
+  <div class="note"><b>الحقيقة الصادقة من مفيد:</b> مش لازم كل هاي الاشتراكات. أداة AI وحدة مجانية بتعمل شغلهم كلهم تقريباً. السرّ مش الأداة، السرّ إنك تعرف <b>شو تطلب منها وكيف</b> — وهاد اللي بيفرّق بين واحد بيلعب فيها وواحد بتصير تشتغل مكانه.</div>
+
+  <div class="cta">
+   <div class="punch">وقّف تدفع عالفاضي.<br><span class="hl">الـAI بيعملّك ياه ببلاش.</span></div>
+   <div class="soft">وإذا بدك تتعلّم تستخدم الـAI صح بكل شغلك، مش أداة أداة، هاد بالظبط اللي بنبنيه مع بعض جوا مجتمع <b>AI Mufeed+</b>.</div>
+   <a class="follow" href="https://instagram.com/yusufmufeed" target="_blank" rel="noopener">تابع @yusufmufeed</a>
+  </div>
+
+  <div class="foot"><b>AI Mufeed</b> · @yusufmufeed · مفيد يعني مفيد.</div>
+
+</div>
+<script>
+function cp(id,btn){
+  var t=document.getElementById(id).innerText;
+  function done(){btn.classList.add('done');btn.textContent='✓ انتسخ!';setTimeout(function(){btn.classList.remove('done');btn.textContent='📋 انسخ الأمر';},2200);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done);}
+  else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}
+}
+</script>
+</body></html>
