@@ -1,0 +1,198 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>وصّل الـ AI بشغلك ببلاش · يوسف مفيد</title>
+<meta name="description" content="دليل مجاني: شو يعني MCP، وكيف توصّل Claude و ChatGPT بالـ Gmail والـ Calendar والـ Drive بـ 3 دقايق، مع 5 أوامر جاهزة للشغل.">
+<meta property="og:title" content="وصّل الـ AI بشغلك ببلاش">
+<meta property="og:description" content="خلّص من النسخ واللصق: وصّل الـ AI بإيميلك وملفاتك بـ 3 دقايق.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@500;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+ :root{--cream:#F4EFE2;--ink:#1A1614;--coral:#D97757;--deep:#B4532F;--muted:#5E5650;--paper:#fff;--soft:#FBF7EE;--green:#3E7C4F;--mint:#E8F5EC;--blush:#FBEDE6}
+ *{margin:0;box-sizing:border-box}
+ html{-webkit-text-size-adjust:100%}
+ body{background:var(--cream);color:var(--ink);font-family:'Tajawal',sans-serif;font-weight:500;line-height:1.75;padding:22px 16px 40px;overflow-x:hidden}
+ .wrap{max-width:760px;margin:0 auto}
+ .kick{display:inline-block;background:var(--coral);color:var(--ink);font-family:'Cairo';font-weight:800;padding:5px 14px;border:3px solid var(--ink);border-radius:8px;box-shadow:3px 3px 0 var(--ink);font-size:13px}
+ h1{font-family:'Cairo';font-weight:900;font-size:clamp(30px,7.5vw,46px);line-height:1.2;margin:16px 0 10px}
+ h1 .hl{color:var(--deep)}
+ .sub{font-weight:700;color:var(--muted);font-size:clamp(16px,4vw,19px)}
+ h2{font-family:'Cairo';font-weight:900;font-size:clamp(24px,6vw,32px);line-height:1.25;margin:40px 0 6px}
+ h2 .n{display:inline-block;background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono';font-size:.6em;padding:2px 10px;border-radius:8px;vertical-align:middle;margin-inline-end:8px;direction:ltr}
+ .lead{font-size:17px;margin-bottom:16px}
+ .en{direction:ltr;unicode-bidi:isolate;font-family:'IBM Plex Mono';font-weight:600;font-size:.88em}
+ .card{background:var(--paper);border:4px solid var(--ink);border-radius:16px;box-shadow:7px 7px 0 var(--ink);padding:20px 18px;margin-bottom:22px}
+ .card h3{font-family:'Cairo';font-weight:800;font-size:22px;margin-bottom:6px}
+ .tag{display:inline-block;font-family:'Cairo';font-weight:800;font-size:13px;background:var(--mint);border:2.5px solid var(--ink);border-radius:20px;padding:1px 12px;margin-bottom:10px}
+ ol.steps{list-style:none;padding:0;counter-reset:s}
+ ol.steps li{counter-increment:s;position:relative;padding-inline-start:42px;margin:12px 0;font-size:16.5px}
+ ol.steps li::before{content:counter(s);position:absolute;inset-inline-start:0;top:2px;width:30px;height:30px;background:var(--coral);border:3px solid var(--ink);border-radius:8px;font-family:'IBM Plex Mono';font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+ .path{font-family:'IBM Plex Mono';font-weight:600;font-size:14px;background:var(--soft);border:2px dashed var(--muted);border-radius:8px;padding:1px 8px;display:inline-block;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+ .tip{background:var(--soft);border-inline-start:5px solid var(--coral);border-radius:8px;padding:10px 14px;margin-top:12px;font-size:15.5px}
+ /* diagram */
+ .dia{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+ .pane{background:var(--paper);border:4px solid var(--ink);border-radius:16px;padding:14px 12px;text-align:center}
+ .pane .lbl{font-family:'Cairo';font-weight:900;font-size:17px;margin-bottom:10px}
+ .ai{display:inline-block;font-family:'Cairo';font-weight:900;font-size:18px;background:var(--blush);border:3px solid var(--ink);border-radius:12px;padding:6px 16px}
+ .ai.locked{border-style:dashed}
+ .cap{font-size:14px;font-weight:700;color:var(--muted);margin-top:10px;line-height:1.5}
+ .hub{margin:14px auto 0;max-width:220px;background:var(--coral);border:3px solid var(--ink);border-radius:10px;font-family:'IBM Plex Mono';font-weight:700;font-size:15px;padding:4px 8px;direction:ltr;position:relative}
+ .hub::before{content:"";position:absolute;left:50%;top:-17px;height:14px;border-left:3px solid var(--ink)}
+ .plugs{display:grid;grid-template-columns:1fr 1fr;gap:12px 8px;margin-top:16px;position:relative}
+ .plug{font-family:'IBM Plex Mono';font-weight:700;font-size:13px;background:var(--mint);border:3px solid var(--ink);border-radius:10px;padding:5px 4px;direction:ltr;position:relative}
+ .plug::before{content:"";position:absolute;left:50%;top:-15px;height:12px;border-left:3px solid var(--ink)}
+ .copy-flow{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:10px}
+ .doc{font-family:'IBM Plex Mono';font-weight:700;font-size:13px;background:var(--soft);border:3px solid var(--ink);border-radius:10px;padding:4px 10px;direction:ltr}
+ .you{font-family:'Cairo';font-weight:800;font-size:14px;background:#FFF4E0;border:3px solid var(--ink);border-radius:20px;padding:2px 12px}
+ @media(max-width:520px){.dia{grid-template-columns:1fr}}
+ /* prompts */
+ .pbox{background:var(--paper);border:3px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 var(--ink);padding:14px;margin-bottom:18px}
+ .pbox .t{font-family:'Cairo';font-weight:800;font-size:17px;margin-bottom:8px}
+ .prompt{font-size:15.5px;line-height:1.7;white-space:pre-wrap;background:var(--soft);border:2px dashed var(--muted);border-radius:10px;padding:12px;margin-bottom:10px}
+ .copybtn{background:var(--deep);color:#fff;font-family:'Cairo';font-weight:800;font-size:16px;border:3px solid var(--ink);border-radius:10px;box-shadow:3px 3px 0 var(--ink);padding:7px 20px;cursor:pointer}
+ .copybtn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+ .copybtn.done{background:var(--green)}
+ .safe{border:4px solid var(--ink);border-radius:16px;background:var(--blush);box-shadow:7px 7px 0 var(--coral);padding:18px;margin-top:10px}
+ .safe ul{padding-inline-start:20px}
+ .safe li{margin:9px 0;font-size:16px}
+ b,strong{font-weight:800}
+ .cta{text-align:center;margin:44px 0 10px}
+ .cta .punch{font-family:'Cairo';font-weight:900;font-size:clamp(24px,6vw,34px);line-height:1.3}
+ .cta .punch .hl{color:var(--deep)}
+ .follow{display:inline-block;margin-top:16px;background:var(--deep);color:#fff;font-family:'Cairo';font-weight:800;font-size:19px;text-decoration:none;padding:12px 24px;border:4px solid var(--ink);border-radius:12px;box-shadow:5px 5px 0 var(--ink)}
+ .src{margin-top:40px;font-size:13.5px;color:var(--muted)}
+ .src h4{font-family:'Cairo';font-size:15px;color:var(--ink);margin-bottom:6px}
+ .src ol{padding-inline-start:20px}
+ .src a{color:var(--muted);word-break:break-all}
+ .foot{text-align:center;margin-top:26px;font-family:'IBM Plex Mono';font-weight:600;color:var(--muted);font-size:13px;direction:ltr}
+ .foot b{color:var(--ink)}
+</style></head><body>
+<div class="wrap">
+
+ <span class="kick">مُفيد · من فيديو «وصّل الـ AI بشركتك… ببلاش»</span>
+ <h1>وقّف نسخ ولصق. <span class="hl">وصّل الـ AI بإيميلك وملفاتك.</span></h1>
+ <div class="sub">دليل ببلاش: 3 دقايق، بدون ولا سطر كود، و 5 أوامر جاهزة للشغل.</div>
+
+ <h2><span class="n">01</span>شو يعني MCP؟ بصورة وحدة</h2>
+ <p class="lead">الـ AI اللي بتستعمله هلأ قاعد بغرفة مسكّرة: ما بشوف إيميلك، ولا ملفاتك، ولا نظام الشركة. فإنت بتصير «الساعي» بينهم، تنسخ من هون وتلصق هناك طول اليوم.</p>
+ <div class="dia" role="img" aria-label="قبل: الـ AI معزول وإنت بتنسخ وبتلصق. بعد: الـ AI موصول عن طريق MCP بالـ Gmail والـ Calendar والـ Drive والـ CRM">
+  <div class="pane">
+   <div class="lbl">بدون MCP</div>
+   <span class="ai locked">AI</span>
+   <div class="copy-flow">
+    <span class="you">إنت بالنص</span>
+    <span class="doc">Gmail · Drive · Excel</span>
+   </div>
+   <div class="cap">كل معلومة بتنسخها بإيدك وبتلصقها</div>
+  </div>
+  <div class="pane">
+   <div class="lbl">مع MCP</div>
+   <span class="ai">AI</span>
+   <div class="hub">MCP = USB</div>
+   <div class="plugs">
+    <span class="plug">Gmail</span><span class="plug">Calendar</span>
+    <span class="plug">Drive</span><span class="plug">CRM / ERP</span>
+   </div>
+   <div class="cap">الـ AI بيقرأ لحاله، وإنت بتسأل بس</div>
+  </div>
+ </div>
+ <div class="tip"><b>MCP</b> هو معيار مفتوح بيوصّل أي AI (زي Claude و ChatGPT) بالأنظمة اللي حواليه. الموقع الرسمي تبعه بيشبهه بمدخل <span class="en">USB-C</span>: فيشة وحدة موحّدة بتشبك فيها أي إشي. جوا التطبيقات بتلاقيه باسم <span class="en">Connectors</span> أو <span class="en">Apps</span> أو <span class="en">Plugins</span>، نفس الفكرة.</div>
+
+ <h2><span class="n">02</span>النسخة السريعة: 3 دقايق</h2>
+ <p class="lead">رح نوصّل <span class="en">Gmail</span> و <span class="en">Google Calendar</span> و <span class="en">Google Drive</span>. جرّبها عحسابك الشخصي أول (شوف صندوق الأمان تحت).</p>
+
+ <div class="card">
+  <span class="tag">متاحة لكل الحسابات، حتى المجانية</span>
+  <h3>Claude (الموقع أو تطبيق Desktop)</h3>
+  <ol class="steps">
+   <li>افتح <span class="path">claude.ai</span> أو تطبيق <span class="en">Claude Desktop</span> وسجّل دخول.</li>
+   <li>روح على <span class="path">Customize</span> وبعدين <span class="path">Connectors</span>. أو من جوا أي محادثة: اكبس <span class="path">+</span> تحت، وقف على <span class="path">Connectors</span>، واختار <span class="path">Manage connectors</span>.</li>
+   <li>اختار <span class="en">Gmail</span> واكبس <span class="path">Connect</span>.</li>
+   <li>بتفتحلك صفحة <span class="en">Google</span>: سجّل بحسابك، اقرأ الصلاحيات، ووافق.</li>
+   <li>عيد نفس الإشي لـ <span class="en">Google Calendar</span> و <span class="en">Google Drive</span>.</li>
+   <li>بأي محادثة: <span class="path">+</span> ثم <span class="path">Connectors</span> وشغّل اللي بدك إياه. وجرّب: «شو عندي اجتماعات بكرا؟»</li>
+  </ol>
+  <div class="tip">Claude <b>بيستأذنك قبل ما يبعت أي إيميل</b>. بيشوف معلومات المرفقات (الاسم والحجم) بس مش محتواها. عالموبايل: ركّبها من الموقع أو الـ Desktop، وبتطلعلك عالتلفون لحالها.</div>
+ </div>
+
+ <div class="card">
+  <span class="tag">حسب اشتراكك وبلدك</span>
+  <h3>ChatGPT</h3>
+  <ol class="steps">
+   <li>افتح <span class="en">ChatGPT</span> وروح على <span class="path">Settings</span> وبعدين <span class="path">Plugins</span>. (بالنسخ القديمة من التطبيق ممكن تلاقيها <span class="path">Apps</span>.)</li>
+   <li>اختار <span class="en">Gmail</span> أو <span class="en">Google Calendar</span> أو <span class="en">Google Drive</span>. إذا طلعلك <span class="path">Install plugin</span> اكبسه، وبعدين <span class="path">Connect</span>.</li>
+   <li>سجّل بحساب <span class="en">Google</span> اللي فيه الملفات اللي بدك إياها، راجع الصلاحيات، ووافق.</li>
+   <li>بالمحادثة: اكتب <span class="path">@</span> واختار التطبيق، أو اكبس <span class="path">+</span> واختاره من القائمة.</li>
+  </ol>
+  <div class="tip">ChatGPT ممكن يطلب موافقتك قبل ما يقرأ أو يعمل أي إشي. اقرأ الطلب قبل ما توافق.</div>
+ </div>
+
+ <div class="card">
+  <h3>Gemini (سطر واحد)</h3>
+  <p>إذا بتستعمل <span class="en">Gemini</span> بنفس حساب <span class="en">Google</span>: اكتب <span class="path">@</span> واختار <span class="en">Gmail</span> أو <span class="en">Drive</span> أو <span class="en">Calendar</span>، وهو بيعرض عليك يوصلهم. لازم يكون <span class="en">Keep Activity</span> شغّال، و <span class="en">Smart features</span> شغّالة بإعدادات الـ <span class="en">Gmail</span>.</p>
+ </div>
+
+ <div class="tip"><b>والـ CRM والـ ERP؟</b> بقائمة الـ <span class="en">Connectors</span> بـ Claude وقائمة الـ <span class="en">Plugins</span> بـ ChatGPT في خدمات كثير غير Google، تصفّحها حسب النوع. وإذا نظام شركتك مش موجود، الـ IT بيقدر يضيفه كـ «Custom connector» (بـ Claude الحساب المجاني مسموحله واحد).</div>
+
+ <h2><span class="n">03</span>5 أوامر جاهزة، انسخ والصق</h2>
+ <p class="lead">غيّر اللي بين الأقواس [ ] وابعت. تأكد إن الـ <span class="en">Connectors</span> شغّالة بالمحادثة.</p>
+
+ <div class="pbox"><div class="t">1. لخّص إيميلات الأسبوع من شخص معيّن</div>
+  <div class="prompt" id="p1">دوّر بالـ Gmail على كل الإيميلات اللي إجتني من [اسم الشخص أو الشركة] هالأسبوع، ولخّصلي: شو المطلوب مني، شو المواعيد اللي انذكرت، وشو لازم أرد عليه أول.</div>
+  <button class="copybtn" onclick="cp('p1',this)">انسخ الأمر</button></div>
+
+ <div class="pbox"><div class="t">2. مسودات ردود جاهزة</div>
+  <div class="prompt" id="p2">اقرأ آخر 5 إيميلات بالـ Inbox ما رديت عليهم، واكتبلي مسودة رد لكل واحد: قصير ومهني وبنفس لغة الإيميل. لا تبعت ولا إشي، خلّيهم Drafts لحتى أراجعهم.</div>
+  <button class="copybtn" onclick="cp('p2',this)">انسخ الأمر</button></div>
+
+ <div class="pbox"><div class="t">3. لاقيلي ملف ولخّصه</div>
+  <div class="prompt" id="p3">دوّر بالـ Google Drive على ملف عن [موضوع الملف أو كلمة من اسمه]. لخّصه بـ 5 نقاط، وطلّعلي أهم الأرقام والمواعيد اللي فيه، وحطلي رابط الملف.</div>
+  <button class="copybtn" onclick="cp('p3',this)">انسخ الأمر</button></div>
+
+ <div class="pbox"><div class="t">4. تحضير اجتماعات بكرا</div>
+  <div class="prompt" id="p4">شوف اجتماعاتي بكرا بالـ Google Calendar. لكل اجتماع: مين الحاضرين، شو آخر إيميلات بيني وبينهم بالـ Gmail، وشو الملفات المتعلقة فيه بالـ Drive. وطلّعلي ورقة تحضير من صفحة وحدة فيها 3 أسئلة لازم أسألهم.</div>
+  <button class="copybtn" onclick="cp('p4',this)">انسخ الأمر</button></div>
+
+ <div class="pbox"><div class="t">5. تقرير أسبوعي لمديرك</div>
+  <div class="prompt" id="p5">من إيميلاتي واجتماعاتي هالأسبوع، حضّرلي تقرير أسبوعي قصير: شو خلص، شو لسا معلّق وليش، وشو الخطوات الجاية الأسبوع الجاي. اكتبه جاهز أبعته لمديري.</div>
+  <button class="copybtn" onclick="cp('p5',this)">انسخ الأمر</button></div>
+
+ <h2><span class="n">04</span>قبل ما توصّل: صندوق الأمان</h2>
+ <div class="safe">
+  <ul>
+   <li><b>حساب الشركة؟ اسأل الـ IT أول.</b> لا توصّل إيميل الشركة أو Drive الشركة أو الـ CRM بدون موافقة. وإذا طلعتلك رسالة <span class="en">Access blocked</span>، معناها الشركة مسكّرة هالإشي والـ IT لازم يوافق.</li>
+   <li><b>شو بيشوف الـ AI؟</b> بس اللي حسابك أصلاً بيقدر يفتحه، وبس لما تطلب منه. ما بيوصل لإشي إنت ما بتوصله.</li>
+   <li><b>وين بتروح البيانات؟</b> اللي بيجيبه بينحفظ مع المحادثة، وإذا مسحت المحادثة بتنمسح معها. Anthropic و OpenAI و Google بيقولوا إنهم ما بيدربوا موديلاتهم مباشرة على بيانات Gmail و Drive و Calendar. بس اللي بتنسخه وتلصقه بالمحادثة بنفسك إله قواعد ثانية، فشوف إعدادات الخصوصية.</li>
+   <li><b>خلّي الإرسال بإيدك.</b> اتركه يكتب مسودات، وإنت اللي تكبس إرسال.</li>
+   <li><b>بتقدر تفصل بأي وقت:</b> Claude من <span class="path">Customize</span> ثم <span class="path">Connectors</span>. ChatGPT من <span class="path">Settings</span> ثم <span class="path">Plugins</span>. Gemini من <span class="path">gemini.google.com/apps</span>.</li>
+  </ul>
+ </div>
+
+ <div class="cta">
+  <div class="punch">الـ AI مش ناقصه ذكاء.<br><span class="hl">ناقصه فيشة.</span></div>
+  <p style="margin-top:12px;font-weight:700">تابع <span class="en">@yusufmufeed.exe</span>، في تحدي 30 يوم جاي.</p>
+  <a class="follow" href="https://instagram.com/yusufmufeed.exe" target="_blank" rel="noopener">تابع على Instagram</a>
+ </div>
+
+ <div class="src">
+  <h4>المصادر (تم التحقق منها بتاريخ 21 أكتوبر 2026)</h4>
+  <ol>
+   <li><a href="https://modelcontextprotocol.io/docs/getting-started/intro">modelcontextprotocol.io: What is MCP</a></li>
+   <li><a href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities">Claude Help: Use connectors to extend Claude's capabilities</a></li>
+   <li><a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors">Claude Help: Use Google Workspace connectors</a></li>
+   <li><a href="https://help.openai.com/en/articles/11487775-connected-apps-in-chatgpt">OpenAI Help: Connected apps in ChatGPT</a></li>
+   <li><a href="https://help.openai.com/en/articles/10408842-google-app-data-controls-faq">OpenAI Help: Google app data controls FAQ</a></li>
+   <li><a href="https://support.google.com/gemini/answer/15229592?hl=en">Gemini Apps Help: Connect Google Workspace apps</a></li>
+  </ol>
+  <p style="margin-top:6px">أسماء الأزرار بتتغيّر مع التحديثات. إذا ما لقيتها، دوّر على كلمة Connectors أو Plugins بالإعدادات.</p>
+ </div>
+
+ <div class="foot"><b>AI Mufeed</b> · @yusufmufeed.exe · مفيد يعني مفيد.</div>
+</div>
+<script>
+function cp(id,btn){
+  var t=document.getElementById(id).innerText;
+  function done(){btn.classList.add('done');btn.textContent='انتسخ!';setTimeout(function(){btn.classList.remove('done');btn.textContent='انسخ الأمر';},2200);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb);}else{fb();}
+  function fb(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}
+}
+</script>
+</body></html>
