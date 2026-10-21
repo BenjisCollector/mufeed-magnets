@@ -18,7 +18,7 @@
  h2{font-family:'Cairo';font-weight:900;font-size:clamp(24px,6vw,32px);line-height:1.25;margin:40px 0 6px}
  h2 .n{display:inline-block;background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono';font-size:.6em;padding:2px 10px;border-radius:8px;vertical-align:middle;margin-left:10px;direction:ltr}
  .lead{font-size:17px;margin-bottom:16px}
- .en{direction:ltr;unicode-bidi:isolate;font-family:'IBM Plex Mono';font-weight:600;font-size:.88em}
+ .en{direction:ltr;unicode-bidi:isolate;font-family:'IBM Plex Mono';font-weight:600;font-size:.88em;white-space:nowrap}
  .card{background:var(--paper);border:4px solid var(--ink);border-radius:16px;box-shadow:7px 7px 0 var(--ink);padding:20px 18px;margin-bottom:22px}
  .card h3{font-family:'Cairo';font-weight:800;font-size:22px;margin-bottom:6px}
  .tag{display:inline-block;font-family:'Cairo';font-weight:800;font-size:13px;background:var(--mint);border:2.5px solid var(--ink);border-radius:20px;padding:1px 12px;margin-bottom:10px}
@@ -60,9 +60,9 @@
  .follow{display:inline-block;margin-top:16px;background:var(--deep);color:#fff;font-family:'Cairo';font-weight:800;font-size:19px;text-decoration:none;padding:12px 24px;border:4px solid var(--ink);border-radius:12px;box-shadow:5px 5px 0 var(--ink)}
  .src{margin-top:40px;font-size:13.5px;color:var(--muted)}
  .src h4{font-family:'Cairo';font-size:15px;color:var(--ink);margin-bottom:6px}
- .src ol{padding-inline-start:20px}
+ .src ol{padding-left:20px;direction:ltr;text-align:left}
  .src a{color:var(--muted);word-break:break-all}
- .foot{text-align:center;margin-top:26px;font-family:'IBM Plex Mono';font-weight:600;color:var(--muted);font-size:13px;direction:ltr}
+ .foot{text-align:center;margin-top:26px;font-family:'IBM Plex Mono';font-weight:600;color:var(--muted);font-size:13px}
  .foot b{color:var(--ink)}
 </style></head><body>
 <div class="wrap">
@@ -130,7 +130,7 @@
   <p>إذا بتستعمل <span class="en">Gemini</span> بنفس حساب <span class="en">Google</span>: اكتب <span class="path">@</span> واختار <span class="en">Gmail</span> أو <span class="en">Drive</span> أو <span class="en">Calendar</span>، وهو بيعرض عليك يوصلهم. لازم يكون <span class="en">Keep Activity</span> شغّال، و <span class="en">Smart features</span> شغّالة بإعدادات الـ&nbsp;<span class="en">Gmail</span>.</p>
  </div>
 
- <div class="tip"><b>والـ&nbsp;CRM والـ&nbsp;ERP؟</b> بقائمة الـ&nbsp;<span class="en">Connectors</span> بـ&nbsp;Claude وقائمة الـ&nbsp;<span class="en">Plugins</span> بـ&nbsp;ChatGPT في خدمات كثير غير Google، تصفّحها حسب النوع. وإذا نظام شركتك مش موجود، الـ&nbsp;IT بيقدر يضيفه كـ «Custom connector» (بـ&nbsp;Claude الحساب المجاني مسموحله واحد).</div>
+ <div class="tip"><b>والـ&nbsp;CRM والـ&nbsp;ERP؟</b> بقائمة الـ&nbsp;<span class="en">Connectors</span> بـ&nbsp;Claude وقائمة الـ&nbsp;<span class="en">Plugins</span> بـ&nbsp;ChatGPT في خدمات كثير غير Google، تصفّحها حسب النوع. وإذا نظام شركتك مش موجود، الـ&nbsp;IT بيقدر يضيفه كـ <span class="en">Custom connector</span> (بـ&nbsp;Claude الحساب المجاني مسموحله واحد).</div>
 
  <h2><span class="n">03</span>5 أوامر جاهزة، انسخ والصق</h2>
  <p class="lead">غيّر اللي بين الأقواس [ ] وابعت. تأكد إن الـ&nbsp;<span class="en">Connectors</span> شغّالة بالمحادثة.</p>
@@ -185,7 +185,7 @@
   <p style="margin-top:6px">أسماء الأزرار بتتغيّر مع التحديثات. إذا ما لقيتها، دوّر على كلمة Connectors أو Plugins بالإعدادات.</p>
  </div>
 
- <div class="foot"><b>AI Mufeed</b> · @yusufmufeed.exe · مفيد يعني مفيد.</div>
+ <div class="foot">مفيد يعني مفيد · <span class="en">@yusufmufeed.exe</span> · <b class="en">AI Mufeed</b></div>
 </div>
 <script>
 function cp(id,btn){
