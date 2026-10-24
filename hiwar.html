@@ -1,0 +1,156 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>فن الحوار مع الـ AI · يوسف مفيد</title>
+<meta name="description" content="دليل مجاني بالعربي: كيف تحكي مع Claude وChatGPT وGemini زي زميل، مع 5 أوامر جاهزة للشغل.">
+<meta property="og:title" content="فن الحوار مع الـ AI">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@500;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+ :root{--cream:#F4EFE2;--ink:#1A1614;--coral:#D97757;--deep:#B4532F;--muted:#5E5650;--paper:#fff;--soft:#FBF7EE;--green:#3E7C4F;--mint:#E8F5EC;--blush:#FBEDE6}
+ *{margin:0;box-sizing:border-box}
+ html{-webkit-text-size-adjust:100%}
+ body{background:var(--cream);color:var(--ink);font-family:'Tajawal',sans-serif;font-weight:500;line-height:1.75;padding:22px 16px 40px;overflow-x:hidden}
+ .wrap{max-width:760px;margin:0 auto}
+ .kick{display:inline-block;background:var(--coral);color:var(--ink);font-family:'Cairo';font-weight:800;padding:5px 14px;border:3px solid var(--ink);border-radius:8px;box-shadow:3px 3px 0 var(--ink);font-size:13px}
+ h1{font-family:'Cairo';font-weight:900;font-size:clamp(30px,7.5vw,46px);line-height:1.2;margin:16px 0 10px}
+ h1 .hl{color:var(--deep)}
+ .sub{font-weight:700;color:var(--muted);font-size:clamp(16px,4vw,19px)}
+ h2{font-family:'Cairo';font-weight:900;font-size:clamp(24px,6vw,32px);line-height:1.25;margin:40px 0 6px}
+ h2 .n{display:inline-block;background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono';font-size:.6em;padding:2px 10px;border-radius:8px;vertical-align:middle;margin-left:10px;direction:ltr}
+ .lead{font-size:17px;margin-bottom:16px}
+ .en{direction:ltr;unicode-bidi:isolate;font-family:'IBM Plex Mono';font-weight:600;font-size:.88em;white-space:nowrap}
+ .card{background:var(--paper);border:4px solid var(--ink);border-radius:16px;box-shadow:7px 7px 0 var(--ink);padding:20px 18px;margin-bottom:22px}
+ .card h3{font-family:'Cairo';font-weight:800;font-size:22px;margin-bottom:6px}
+ .tag{display:inline-block;font-family:'Cairo';font-weight:800;font-size:13px;background:var(--mint);border:2.5px solid var(--ink);border-radius:20px;padding:1px 12px;margin-bottom:10px}
+ ol.steps{list-style:none;padding:0;counter-reset:s}
+ ol.steps li{counter-increment:s;position:relative;padding-inline-start:42px;margin:12px 0;font-size:16.5px}
+ ol.steps li::before{content:counter(s);position:absolute;inset-inline-start:0;top:2px;width:30px;height:30px;background:var(--coral);border:3px solid var(--ink);border-radius:8px;font-family:'IBM Plex Mono';font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+ .path{font-family:'IBM Plex Mono';font-weight:600;font-size:14px;background:var(--soft);border:2px dashed var(--muted);border-radius:8px;padding:1px 8px;display:inline-block;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+ .tip{background:var(--soft);border-inline-start:5px solid var(--coral);border-radius:8px;padding:10px 14px;margin-top:12px;font-size:15.5px}
+ /* diagram */
+ .dia{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+ .pane{background:var(--paper);border:4px solid var(--ink);border-radius:16px;padding:14px 12px;text-align:center}
+ .pane .lbl{font-family:'Cairo';font-weight:900;font-size:17px;margin-bottom:10px}
+ .ai{display:inline-block;font-family:'Cairo';font-weight:900;font-size:18px;background:var(--blush);border:3px solid var(--ink);border-radius:12px;padding:6px 16px}
+ .ai.locked{border-style:dashed}
+ .cap{font-size:14px;font-weight:700;color:var(--muted);margin-top:10px;line-height:1.5}
+ .hub{margin:14px auto 0;max-width:220px;background:var(--coral);border:3px solid var(--ink);border-radius:10px;font-family:'IBM Plex Mono';font-weight:700;font-size:15px;padding:4px 8px;direction:ltr;position:relative}
+ .hub::before{content:"";position:absolute;left:50%;top:-17px;height:14px;border-left:3px solid var(--ink)}
+ .plugs{display:grid;grid-template-columns:1fr 1fr;gap:12px 8px;margin-top:16px;position:relative}
+ .plug{font-family:'IBM Plex Mono';font-weight:700;font-size:13px;background:var(--mint);border:3px solid var(--ink);border-radius:10px;padding:5px 4px;direction:ltr;position:relative}
+ .plug::before{content:"";position:absolute;left:50%;top:-15px;height:12px;border-left:3px solid var(--ink)}
+ .copy-flow{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:10px}
+ .doc{font-family:'IBM Plex Mono';font-weight:700;font-size:13px;background:var(--soft);border:3px solid var(--ink);border-radius:10px;padding:4px 10px;direction:ltr}
+ .you{font-family:'Cairo';font-weight:800;font-size:14px;background:#FFF4E0;border:3px solid var(--ink);border-radius:20px;padding:2px 12px}
+ @media(max-width:520px){.dia{grid-template-columns:1fr}}
+ /* prompts */
+ .pbox{background:var(--paper);border:3px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 var(--ink);padding:14px;margin-bottom:18px}
+ .pbox .t{font-family:'Cairo';font-weight:800;font-size:17px;margin-bottom:8px}
+ .prompt{font-size:15.5px;line-height:1.7;white-space:pre-wrap;background:var(--soft);border:2px dashed var(--muted);border-radius:10px;padding:12px;margin-bottom:10px}
+ .copybtn{background:var(--deep);color:#fff;font-family:'Cairo';font-weight:800;font-size:16px;border:3px solid var(--ink);border-radius:10px;box-shadow:3px 3px 0 var(--ink);padding:7px 20px;cursor:pointer}
+ .copybtn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+ .copybtn.done{background:var(--green)}
+ .safe{border:4px solid var(--ink);border-radius:16px;background:var(--blush);box-shadow:7px 7px 0 var(--coral);padding:18px;margin-top:10px}
+ .safe ul{padding-inline-start:20px}
+ .safe li{margin:9px 0;font-size:16px}
+ b,strong{font-weight:800}
+ .cta{text-align:center;margin:44px 0 10px}
+ .cta .punch{font-family:'Cairo';font-weight:900;font-size:clamp(24px,6vw,34px);line-height:1.3}
+ .cta .punch .hl{color:var(--deep)}
+ .follow{display:inline-block;margin-top:16px;background:var(--deep);color:#fff;font-family:'Cairo';font-weight:800;font-size:19px;text-decoration:none;padding:12px 24px;border:4px solid var(--ink);border-radius:12px;box-shadow:5px 5px 0 var(--ink)}
+ .src{margin-top:40px;font-size:13.5px;color:var(--muted)}
+ .src h4{font-family:'Cairo';font-size:15px;color:var(--ink);margin-bottom:6px}
+ .src ol{padding-left:20px;direction:ltr;text-align:left}
+ .src a{color:var(--muted);word-break:break-all}
+ .foot{text-align:center;margin-top:26px;font-family:'IBM Plex Mono';font-weight:600;color:var(--muted);font-size:13px}
+ .foot b{color:var(--ink)}
+</style></head><body><div class="wrap">
+ <span class="kick">دليل مجاني · يوسف مفيد</span>
+ <h1>فن الحوار<br><span class="hl">مع الـ&nbsp;AI</span></h1>
+ <p class="sub">المهارة اللي بتحفظ شغلك مش إنك تعرف أداة جديدة كل شهر. إنك تعرف تحكي مع <span class="en">Claude</span> و<span class="en">ChatGPT</span> و<span class="en">Gemini</span> زي ما بتحكي مع زميل شاطر.</p>
+
+ <h2><span class="n">01</span>ليش جوابه عام؟</h2>
+ <div class="card"><p class="lead">معظم الناس بيكتبوا سطر واحد: «اكتبلي إيميل». الـ&nbsp;AI ما بيعرف شغلك، ولا مديرك، ولا شو بدك بالزبط. كل إشي ما بتحكيله ياه، بيخمّنه. والتخمين بيطلع جواب عام.</p>
+ <div class="dia">
+  <div class="pane"><div class="lbl">بدل هيك</div><span class="ai locked">«اختصر التقرير»</span><div class="cap">بيطلعلك ملخص عادي، ممكن طويل، ممكن ناقص.</div></div>
+  <div class="pane"><div class="lbl">احكي هيك</div><span class="ai">«اختصره لصفحة، لأنه...»</span><div class="cap">«...مديري بيقرأه على التلفون بين اجتماعين، وبدّه يعرف شو القرار المطلوب منه.»</div></div>
+ </div>
+ <div class="tip"><b>القاعدة:</b> عامله زي زميل جديد شاطر، أول يوم إله بالشغل. ذكي، بس ما بيعرف ولا إشي عنك.</div></div>
+
+ <h2><span class="n">02</span>القواعد الأربع</h2>
+ <div class="card"><ol class="steps">
+  <li><b>أعطيه سياق وسبب («لأنه»).</b> مين القارئ، شو الهدف، وليش. السبب بيخلّيه يفهم شو المهم ويقرر لحاله صح.</li>
+  <li><b>خلّيه يقابلك أول.</b> «قبل ما تكتب، اسألني الأسئلة اللي بتحتاجها، وحدة وحدة.» هيك بيطلع منك المعلومات اللي نسيت تحكيها.</li>
+  <li><b>اطلب ٣ خيارات.</b> أول جواب نادرًا يكون أحسن جواب. ٣ خيارات مختلفة بتخلّيك تختار، مش تقبل وبس.</li>
+  <li><b>خلّيه يراجع حاله.</b> «راجع اللي كتبته: شو الغلط أو الناقص أو المبالغ فيه؟ صلّحه.» زي ما بتطلب من زميل يقرأ شغله مرة ثانية.</li>
+ </ol></div>
+
+ <h2><span class="n">03</span>٥ أوامر جاهزة للشغل</h2>
+ <p class="lead">انسخ الأمر، عبّي اللي بين [ ]، وحطّه بأي <span class="en">AI</span> شركتك سامحة فيه. كل أمر فيه القواعد الأربع.</p>
+<div class="pbox"><div class="t">١. إيميل صعب لمدير أو عميل</div>
+  <div class="prompt" id="p1">إنت زميلي بالشغل وشاطر بالمراسلات. بدي أكتب إيميل لـ [مين: مديري / عميل / قسم ثاني] عن [الموضوع].
+السياق: [شو صار باختصار].
+الهدف: [شو بدي يصير بعد ما يقرأ]، لأنه [ليش هاد مهم].
+قبل ما تكتب، اسألني 3 أسئلة بتحتاجها، وحدة وحدة، واستنى جوابي.
+بعدها اكتبلي 3 نسخ مختلفة: وحدة مباشرة، وحدة دبلوماسية، ووحدة قصيرة جدًا.
+بالآخر راجع النسخ الثلاث: في إشي ممكن ينفهم غلط أو يزعّل؟ قلّي وصلّحه.</div>
+  <button class="copybtn" onclick="cp('p1',this)">انسخ الأمر</button></div>
+<div class="pbox"><div class="t">٢. من ملاحظات اجتماع لمهام واضحة</div>
+  <div class="prompt" id="p2">هاي ملاحظاتي من اجتماع اليوم: [الصق الملاحظات].
+بدي ألخصها وأبعتها للفريق، لأنه كل واحد لازم يعرف شو مطلوب منه وإمتى.
+قبل ما تبدأ، إذا في إشي مش واضح (مين مسؤول، أو موعد ناقص)، اسألني عنه أول.
+بعدها اكتبلي: 3 قرارات أخذناها، وجدول مهام (المهمة، المسؤول، الموعد).
+راجع شغلك: في مهمة بدون مسؤول أو بدون موعد؟ علّم عليها بدل ما تخترع.</div>
+  <button class="copybtn" onclick="cp('p2',this)">انسخ الأمر</button></div>
+<div class="pbox"><div class="t">٣. تحضير لاجتماع أو عرض</div>
+  <div class="prompt" id="p3">عندي اجتماع مع [مين] عن [الموضوع] بعد [متى].
+بدي أطلع منه بـ [النتيجة اللي بدي ياها]، لأنه [السبب].
+قابلني أول: اسألني 4 أسئلة عن الوضع والناس اللي رح يكونوا موجودين، وحدة وحدة.
+بعدها أعطيني: 3 طرق مختلفة أفتح فيها الاجتماع، وأصعب 5 أسئلة ممكن ينسألوا وكيف أجاوبهم.
+بالآخر قلّي وين نقطة الضعف بموقفي، وبصراحة.</div>
+  <button class="copybtn" onclick="cp('p3',this)">انسخ الأمر</button></div>
+<div class="pbox"><div class="t">٤. تقرير طويل لصفحة وحدة لمديرك</div>
+  <div class="prompt" id="p4">هاد تقرير/مستند: [الصق النص].
+اختصره لصفحة وحدة لمديري، لأنه بيقرأه على التلفون وبدّه يعرف بسرعة شو القرار المطلوب منه.
+إذا مش عارف شو أهم إشي لمديري، اسألني قبل ما تكتب.
+اعطيني 3 نسخ: وحدة بتبدأ بالقرار، وحدة بتبدأ بالأرقام، ووحدة بتبدأ بالمشكلة.
+بالآخر راجع: في رقم أو معلومة مش موجودة بالنص الأصلي؟ احذفها. لا تخترع ولا إشي.</div>
+  <button class="copybtn" onclick="cp('p4',this)">انسخ الأمر</button></div>
+<div class="pbox"><div class="t">٥. مشكلة بالشغل ومش عارف شو تعمل</div>
+  <div class="prompt" id="p5">عندي مشكلة بالشغل: [وصف المشكلة].
+اللي جربته لهلأ: [شو عملت]. وبدي حل لأنه [ليش مستعجلة أو مهمة].
+قبل ما تقترح إشي، اسألني الأسئلة اللي بتحتاجها لتفهم الوضع، وحدة وحدة.
+بعدها اقترح 3 حلول مختلفة، ولكل حل: الإيجابيات، السلبيات، وأول خطوة بكرا الصبح.
+بالآخر العب دور المعارض: ليش ممكن الحل اللي بتفضله يفشل؟</div>
+  <button class="copybtn" onclick="cp('p5',this)">انسخ الأمر</button></div>
+ <h2><span class="n">04</span>قبل ما تبدأ</h2>
+ <div class="safe"><ul>
+  <li><b>استعمل الـ&nbsp;AI اللي شركتك سامحة فيه.</b> ولا تلزق أسرار عملاء أو بيانات حساسة.</li>
+  <li><b>إنت المسؤول عن النتيجة.</b> اقرأ كل إشي قبل ما تبعته، خصوصًا الأرقام والأسماء.</li>
+  <li><b>كمّل الحوار.</b> أول جواب مش آخر جواب. قلّه «أقصر»، «أرسمي أقل»، «ليش اخترت هيك؟».</li>
+ </ul></div>
+
+ <div class="cta">
+  <div class="punch">الأدوات بتتغير كل شهر.<br><span class="hl">الحوار مهارة بتضل معك.</span></div>
+  <p style="margin-top:12px;font-weight:700">تابع <span class="en">@yusufmufeed.exe</span>، في تحدي 30 يوم جاي.</p>
+  <a class="follow" href="https://instagram.com/yusufmufeed.exe" target="_blank" rel="noopener">تابع على Instagram</a>
+ </div>
+
+ <div class="src">
+  <h4>المصادر (تم التحقق منها بتاريخ 24 أكتوبر 2026)</h4>
+  <ol>
+   <li><a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices">Anthropic: Prompting best practices (add context and explain why)</a></li>
+   <li><a href="https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt">OpenAI Help: Prompt engineering best practices for ChatGPT</a></li>
+   <li><a href="https://workspace.google.com/learning/content/gemini-prompt-guide">Google Workspace: Gemini prompting guide</a></li>
+  </ol>
+ </div>
+
+ <div class="foot">مفيد يعني مفيد · <span class="en">@yusufmufeed.exe</span> · <b class="en">AI Mufeed</b></div>
+</div>
+<script>
+function cp(id,btn){
+  var t=document.getElementById(id).innerText;
+  function done(){btn.classList.add('done');btn.textContent='انتسخ!';setTimeout(function(){btn.classList.remove('done');btn.textContent='انسخ الأمر';},2200);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb);}else{fb();}
+  function fb(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}
+}
+</script></body></html>

@@ -1,0 +1,142 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ثغرة PHP: شو تعمل إذا عندك موقع؟ · يوسف مفيد</title>
+<meta name="description" content="دليل مجاني بالعربي: شو صار بثغرة PHP2Shell، وشو يعمل صاحب الموقع اليوم، مع رسالة جاهزة للمطوّر.">
+<meta property="og:title" content="ثغرة PHP: شو تعمل إذا عندك موقع؟">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@500;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+ :root{--cream:#F4EFE2;--ink:#1A1614;--coral:#D97757;--deep:#B4532F;--muted:#5E5650;--paper:#fff;--soft:#FBF7EE;--green:#3E7C4F;--mint:#E8F5EC;--blush:#FBEDE6}
+ *{margin:0;box-sizing:border-box}
+ html{-webkit-text-size-adjust:100%}
+ body{background:var(--cream);color:var(--ink);font-family:'Tajawal',sans-serif;font-weight:500;line-height:1.75;padding:22px 16px 40px;overflow-x:hidden}
+ .wrap{max-width:760px;margin:0 auto}
+ .kick{display:inline-block;background:var(--coral);color:var(--ink);font-family:'Cairo';font-weight:800;padding:5px 14px;border:3px solid var(--ink);border-radius:8px;box-shadow:3px 3px 0 var(--ink);font-size:13px}
+ h1{font-family:'Cairo';font-weight:900;font-size:clamp(30px,7.5vw,46px);line-height:1.2;margin:16px 0 10px}
+ h1 .hl{color:var(--deep)}
+ .sub{font-weight:700;color:var(--muted);font-size:clamp(16px,4vw,19px)}
+ h2{font-family:'Cairo';font-weight:900;font-size:clamp(24px,6vw,32px);line-height:1.25;margin:40px 0 6px}
+ h2 .n{display:inline-block;background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono';font-size:.6em;padding:2px 10px;border-radius:8px;vertical-align:middle;margin-left:10px;direction:ltr}
+ .lead{font-size:17px;margin-bottom:16px}
+ .en{direction:ltr;unicode-bidi:isolate;font-family:'IBM Plex Mono';font-weight:600;font-size:.88em;white-space:nowrap}
+ .card{background:var(--paper);border:4px solid var(--ink);border-radius:16px;box-shadow:7px 7px 0 var(--ink);padding:20px 18px;margin-bottom:22px}
+ .card h3{font-family:'Cairo';font-weight:800;font-size:22px;margin-bottom:6px}
+ .tag{display:inline-block;font-family:'Cairo';font-weight:800;font-size:13px;background:var(--mint);border:2.5px solid var(--ink);border-radius:20px;padding:1px 12px;margin-bottom:10px}
+ ol.steps{list-style:none;padding:0;counter-reset:s}
+ ol.steps li{counter-increment:s;position:relative;padding-inline-start:42px;margin:12px 0;font-size:16.5px}
+ ol.steps li::before{content:counter(s);position:absolute;inset-inline-start:0;top:2px;width:30px;height:30px;background:var(--coral);border:3px solid var(--ink);border-radius:8px;font-family:'IBM Plex Mono';font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+ .path{font-family:'IBM Plex Mono';font-weight:600;font-size:14px;background:var(--soft);border:2px dashed var(--muted);border-radius:8px;padding:1px 8px;display:inline-block;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+ .tip{background:var(--soft);border-inline-start:5px solid var(--coral);border-radius:8px;padding:10px 14px;margin-top:12px;font-size:15.5px}
+ /* diagram */
+ .dia{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+ .pane{background:var(--paper);border:4px solid var(--ink);border-radius:16px;padding:14px 12px;text-align:center}
+ .pane .lbl{font-family:'Cairo';font-weight:900;font-size:17px;margin-bottom:10px}
+ .ai{display:inline-block;font-family:'Cairo';font-weight:900;font-size:18px;background:var(--blush);border:3px solid var(--ink);border-radius:12px;padding:6px 16px}
+ .ai.locked{border-style:dashed}
+ .cap{font-size:14px;font-weight:700;color:var(--muted);margin-top:10px;line-height:1.5}
+ .hub{margin:14px auto 0;max-width:220px;background:var(--coral);border:3px solid var(--ink);border-radius:10px;font-family:'IBM Plex Mono';font-weight:700;font-size:15px;padding:4px 8px;direction:ltr;position:relative}
+ .hub::before{content:"";position:absolute;left:50%;top:-17px;height:14px;border-left:3px solid var(--ink)}
+ .plugs{display:grid;grid-template-columns:1fr 1fr;gap:12px 8px;margin-top:16px;position:relative}
+ .plug{font-family:'IBM Plex Mono';font-weight:700;font-size:13px;background:var(--mint);border:3px solid var(--ink);border-radius:10px;padding:5px 4px;direction:ltr;position:relative}
+ .plug::before{content:"";position:absolute;left:50%;top:-15px;height:12px;border-left:3px solid var(--ink)}
+ .copy-flow{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:10px}
+ .doc{font-family:'IBM Plex Mono';font-weight:700;font-size:13px;background:var(--soft);border:3px solid var(--ink);border-radius:10px;padding:4px 10px;direction:ltr}
+ .you{font-family:'Cairo';font-weight:800;font-size:14px;background:#FFF4E0;border:3px solid var(--ink);border-radius:20px;padding:2px 12px}
+ @media(max-width:520px){.dia{grid-template-columns:1fr}}
+ /* prompts */
+ .pbox{background:var(--paper);border:3px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 var(--ink);padding:14px;margin-bottom:18px}
+ .pbox .t{font-family:'Cairo';font-weight:800;font-size:17px;margin-bottom:8px}
+ .prompt{font-size:15.5px;line-height:1.7;white-space:pre-wrap;background:var(--soft);border:2px dashed var(--muted);border-radius:10px;padding:12px;margin-bottom:10px}
+ .copybtn{background:var(--deep);color:#fff;font-family:'Cairo';font-weight:800;font-size:16px;border:3px solid var(--ink);border-radius:10px;box-shadow:3px 3px 0 var(--ink);padding:7px 20px;cursor:pointer}
+ .copybtn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+ .copybtn.done{background:var(--green)}
+ .safe{border:4px solid var(--ink);border-radius:16px;background:var(--blush);box-shadow:7px 7px 0 var(--coral);padding:18px;margin-top:10px}
+ .safe ul{padding-inline-start:20px}
+ .safe li{margin:9px 0;font-size:16px}
+ b,strong{font-weight:800}
+ .cta{text-align:center;margin:44px 0 10px}
+ .cta .punch{font-family:'Cairo';font-weight:900;font-size:clamp(24px,6vw,34px);line-height:1.3}
+ .cta .punch .hl{color:var(--deep)}
+ .follow{display:inline-block;margin-top:16px;background:var(--deep);color:#fff;font-family:'Cairo';font-weight:800;font-size:19px;text-decoration:none;padding:12px 24px;border:4px solid var(--ink);border-radius:12px;box-shadow:5px 5px 0 var(--ink)}
+ .src{margin-top:40px;font-size:13.5px;color:var(--muted)}
+ .src h4{font-family:'Cairo';font-size:15px;color:var(--ink);margin-bottom:6px}
+ .src ol{padding-left:20px;direction:ltr;text-align:left}
+ .src a{color:var(--muted);word-break:break-all}
+ .foot{text-align:center;margin-top:26px;font-family:'IBM Plex Mono';font-weight:600;color:var(--muted);font-size:13px}
+ .foot b{color:var(--ink)}
+</style></head><body><div class="wrap">
+ <span class="kick">دليل مجاني · يوسف مفيد</span>
+ <h1>ثغرة <span class="en">PHP</span>:<br><span class="hl">شو تعمل إذا عندك موقع؟</span></h1>
+ <p class="sub">إذا موقعك <span class="en">WordPress</span> أو متجر أو أي موقع على استضافة عادية، في احتمال كبير إنه شغّال على <span class="en">PHP</span>. هاد اللي صار، وهاد اللي لازم تعمله اليوم، حتى لو مش تقني.</p>
+
+ <h2><span class="n">01</span>شو اللي صار؟</h2>
+ <div class="card"><ol class="steps">
+  <li><b>أغسطس 2026:</b> باحث من شركة <span class="en">Calif</span> استعمل موديل <span class="en">GPT-5.6 Sol</span> من <span class="en">OpenAI</span>، وأكّد إنه في ثغرة بـ <span class="en">PHP</span> بتخلّي أي حد يشغّل كود على السيرفر بدون ما يسجّل دخول. شركة <span class="en">Wiz</span> لقت ثغرة ثانية لحالها. الاسم: <b><span class="en">PHP2Shell</span></b>.</li>
+  <li><b>عمرها تقريبًا 14 سنة:</b> النسخ المتأثرة من <span class="en">PHP 5.4</span> (طلعت سنة 2012) لـ <span class="en">8.5</span>.</li>
+  <li><b>20 أكتوبر:</b> الخبر تسرّب على <span class="en">Hacker News</span> قبل ما يكون في تحديث جاهز.</li>
+  <li><b>21 أكتوبر:</b> فريق <span class="en">PHP</span> نزّل التحديث. بنفس اليوم هولندا نزّلت مواقع حكومية زي <span class="en">Overheid.nl</span> احتياطًا، ونفس الإشي صار بفنلندا وألمانيا وفرنسا وبلجيكا.</li>
+  <li><b>الهجمات بلّشت بسرعة:</b> <span class="en">Cloudflare</span> سجّلت ملايين محاولات استغلال لحد 22 أكتوبر.</li>
+ </ol>
+ <div class="tip"><b>الخلاصة:</b> فريق <span class="en">PHP</span> نفسه حكى إنه التحديث هو الحل الآمن الوحيد. الحلول المؤقتة مش كاملة.</div></div>
+
+ <h2><span class="n">02</span>النسخ الآمنة</h2>
+ <div class="card"><p class="lead">موقعك لازم يكون على وحدة من هدول أو أحدث:</p>
+ <p><span class="tag en">8.5.12</span> <span class="tag en">8.4.27</span> <span class="tag en">8.3.36</span> <span class="tag en">8.2.35</span></p>
+ <div class="tip">إذا موقعك على <span class="en">PHP 7.4</span> أو <span class="en">8.0</span> أو <span class="en">8.1</span>: هدول نسخ قديمة ومنتهية، ما إلهم تحديث رسمي جاهز. اطلب نقل الموقع لنسخة مدعومة.</div></div>
+
+ <h2><span class="n">03</span>شو تعمل اليوم (بدون خبرة تقنية)</h2>
+ <div class="card"><ol class="steps">
+  <li><b>اعرف نسخة <span class="en">PHP</span>:</b> ادخل لوحة الاستضافة (<span class="en">cPanel</span> أو <span class="en">Plesk</span> أو لوحة شركتك) ودوّر على <span class="path">PHP Version</span>. إذا موقعك <span class="en">WordPress</span>: <span class="path">Tools → Site Health</span> ثم <span class="path">Info → Server</span>.</li>
+  <li><b>حدّث إذا في زر:</b> كثير من الاستضافات بتخليك تختار نسخة <span class="en">PHP</span> من اللوحة. اختار أحدث نسخة من القائمة فوق.</li>
+  <li><b>ابعت لمطوّرك أو شركة الاستضافة:</b> الرسالة الجاهزة تحت. لا تستنى يحكولك.</li>
+  <li><b>انتبه:</b> <span class="en">WordPress</span> بيحدّث حاله تلقائيًا، بس هاد تحديث <span class="en">WordPress</span>، مش <span class="en">PHP</span>. نسخة <span class="en">PHP</span> مسؤولية الاستضافة أو المطوّر.</li>
+  <li><b>خذ نسخة احتياطية (Backup) قبل أي تحديث،</b> واتأكد إنها محفوظة برّا السيرفر.</li>
+ </ol></div>
+
+ <h2><span class="n">04</span>رسالة جاهزة لمطوّرك أو الاستضافة</h2>
+ <div class="pbox"><div class="t">انسخها وابعتها إيميل أو واتساب</div>
+  <div class="prompt" id="p1">مرحبا،
+بخصوص ثغرة PHP2Shell بـ PHP (CVE-2026-109618 و CVE-2026-109619) اللي انتشرت تحديثاتها بـ 21 أكتوبر 2026:
+1. شو نسخة PHP اللي شغّال عليها موقعي [اسم الموقع] بالزبط؟
+2. هل صار تحديث لـ 8.5.12 أو 8.4.27 أو 8.3.36 أو 8.2.35 أو أحدث؟ إذا لا، إمتى؟
+3. إذا الموقع على نسخة قديمة (7.4 أو 8.0 أو 8.1)، شو الخطة لنقله لنسخة مدعومة؟
+4. في نسخة احتياطية حديثة للموقع، ومحفوظة برّا السيرفر؟
+5. في جدار حماية (WAF) شغّال على الموقع لحد ما يخلص التحديث؟
+بدي جواب مكتوب اليوم إذا بتقدر. شكرًا.</div>
+  <button class="copybtn" onclick="cp('p1',this)">انسخ الرسالة</button></div>
+
+ <h2><span class="n">05</span>قبل ما تبدأ</h2>
+ <div class="safe"><ul>
+  <li><b>ما بتقدر تحدّث اليوم؟</b> اسأل الاستضافة عن جدار حماية (<span class="en">WAF</span>) زي <span class="en">Cloudflare</span>، أو وقّف الموقع مؤقتًا. هيك عملت حكومات.</li>
+  <li><b>لا تحمّل «أدوات فحص» من روابط غريبة.</b> المحتالين بيستغلوا هيك أخبار.</li>
+  <li><b>ما عندك موقع؟</b> ابعت الصفحة لصاحبك اللي عنده متجر أو موقع شركة.</li>
+ </ul></div>
+
+ <div class="cta">
+  <div class="punch">الـ&nbsp;AI صار يلاقي الثغرات أسرع من أي حد.<br><span class="hl">والمهاجمين كمان معهم AI.</span></div>
+  <p style="margin-top:12px;font-weight:700">تابع <span class="en">@yusufmufeed.exe</span>، في تحدي 30 يوم جاي.</p>
+  <a class="follow" href="https://instagram.com/yusufmufeed.exe" target="_blank" rel="noopener">تابع على Instagram</a>
+ </div>
+
+ <div class="src">
+  <h4>المصادر (تم التحقق منها بتاريخ 24 أكتوبر 2026)</h4>
+  <ol>
+   <li><a href="https://en.wikipedia.org/wiki/PHP2Shell">Wikipedia: PHP2Shell</a></li>
+   <li><a href="https://www.kaspersky.com/resource-center/threats/php-critical-vulnerabilities">Kaspersky: Websites taken offline over critical PHP vulnerabilities</a></li>
+   <li><a href="https://strongmocha.com/ai-infrastructure/why-php2shell-matters-as-dutch-government-websites-go-offline/">StrongMocha: Why PHP2Shell matters as Dutch government websites go offline</a></li>
+   <li><a href="https://www.theregister.com/security/2026/10/22/php2shell-puts-dozens-of-uk-government-services-out-of-service/5304840">The Register: PHP2Shell puts dozens of UK government services out of service</a></li>
+   <li><a href="https://www.php.net/supported-versions.php">PHP.net: Supported versions</a></li>
+   <li><a href="https://wordpress.org/documentation/article/site-health-screen/">WordPress: Site Health screen</a></li>
+  </ol>
+  <p style="margin-top:6px">هاي معلومات عامة مش استشارة أمنية. إذا موقعك فيه بيانات زبائن أو دفع، اطلب من مختص يراجعه.</p>
+ </div>
+
+ <div class="foot">مفيد يعني مفيد · <span class="en">@yusufmufeed.exe</span> · <b class="en">AI Mufeed</b></div>
+</div>
+<script>
+function cp(id,btn){
+  var t=document.getElementById(id).innerText;
+  function done(){btn.classList.add('done');btn.textContent='انتسخ!';setTimeout(function(){btn.classList.remove('done');btn.textContent='انسخ الأمر';},2200);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb);}else{fb();}
+  function fb(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}
+}
+</script></body></html>
