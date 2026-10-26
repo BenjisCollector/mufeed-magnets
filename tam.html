@@ -1,0 +1,114 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>لا تصدّق «تم» من الـ AI · يوسف مفيد</title>
+<meta name="description" content="سؤال واحد بعد كل شغلة بيعملها الـ AI، عشان تتأكد إنه ما شال ولا غيّر إشي من وراك.">
+<meta property="og:title" content="لا تصدّق «تم» من الـ AI">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@500;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+ :root{--cream:#F4EFE2;--ink:#1A1614;--coral:#D97757;--deep:#B4532F;--muted:#5E5650;--paper:#fff;--soft:#FBF7EE;--green:#3E7C4F;--mint:#E8F5EC;--blush:#FBEDE6}
+ *{margin:0;box-sizing:border-box}
+ html{-webkit-text-size-adjust:100%}
+ body{background:var(--cream);color:var(--ink);font-family:'Tajawal',sans-serif;font-weight:500;line-height:1.75;padding:22px 16px 40px;overflow-x:hidden}
+ .wrap{max-width:760px;margin:0 auto}
+ .kick{display:inline-block;background:var(--coral);color:var(--ink);font-family:'Cairo';font-weight:800;padding:5px 14px;border:3px solid var(--ink);border-radius:8px;box-shadow:3px 3px 0 var(--ink);font-size:13px}
+ h1{font-family:'Cairo';font-weight:900;font-size:clamp(30px,7.5vw,46px);line-height:1.2;margin:16px 0 10px}
+ h1 .hl{color:var(--deep)}
+ .sub{font-weight:700;color:var(--muted);font-size:clamp(16px,4vw,19px)}
+ h2{font-family:'Cairo';font-weight:900;font-size:clamp(24px,6vw,32px);line-height:1.25;margin:40px 0 6px}
+ h2 .n{display:inline-block;background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono';font-size:.6em;padding:2px 10px;border-radius:8px;vertical-align:middle;margin-left:10px;direction:ltr}
+ .lead{font-size:17px;margin-bottom:16px}
+ .en{direction:ltr;unicode-bidi:isolate;font-family:'IBM Plex Mono';font-weight:600;font-size:.88em;white-space:nowrap}
+ .card{background:var(--paper);border:4px solid var(--ink);border-radius:16px;box-shadow:7px 7px 0 var(--ink);padding:20px 18px;margin-bottom:22px}
+ .card h3{font-family:'Cairo';font-weight:800;font-size:22px;margin-bottom:6px}
+ .tag{display:inline-block;font-family:'Cairo';font-weight:800;font-size:13px;background:var(--mint);border:2.5px solid var(--ink);border-radius:20px;padding:1px 12px;margin-bottom:10px}
+ ol.steps{list-style:none;padding:0;counter-reset:s}
+ ol.steps li{counter-increment:s;position:relative;padding-inline-start:42px;margin:12px 0;font-size:16.5px}
+ ol.steps li::before{content:counter(s);position:absolute;inset-inline-start:0;top:2px;width:30px;height:30px;background:var(--coral);border:3px solid var(--ink);border-radius:8px;font-family:'IBM Plex Mono';font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+ .path{font-family:'IBM Plex Mono';font-weight:600;font-size:14px;background:var(--soft);border:2px dashed var(--muted);border-radius:8px;padding:1px 8px;display:inline-block;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+ .tip{background:var(--soft);border-inline-start:5px solid var(--coral);border-radius:8px;padding:10px 14px;margin-top:12px;font-size:15.5px}
+ /* diagram */
+ .dia{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+ .pane{background:var(--paper);border:4px solid var(--ink);border-radius:16px;padding:14px 12px;text-align:center}
+ .pane .lbl{font-family:'Cairo';font-weight:900;font-size:17px;margin-bottom:10px}
+ .ai{display:inline-block;font-family:'Cairo';font-weight:900;font-size:18px;background:var(--blush);border:3px solid var(--ink);border-radius:12px;padding:6px 16px}
+ .ai.locked{border-style:dashed}
+ .cap{font-size:14px;font-weight:700;color:var(--muted);margin-top:10px;line-height:1.5}
+ .hub{margin:14px auto 0;max-width:220px;background:var(--coral);border:3px solid var(--ink);border-radius:10px;font-family:'IBM Plex Mono';font-weight:700;font-size:15px;padding:4px 8px;direction:ltr;position:relative}
+ .hub::before{content:"";position:absolute;left:50%;top:-17px;height:14px;border-left:3px solid var(--ink)}
+ .plugs{display:grid;grid-template-columns:1fr 1fr;gap:12px 8px;margin-top:16px;position:relative}
+ .plug{font-family:'IBM Plex Mono';font-weight:700;font-size:13px;background:var(--mint);border:3px solid var(--ink);border-radius:10px;padding:5px 4px;direction:ltr;position:relative}
+ .plug::before{content:"";position:absolute;left:50%;top:-15px;height:12px;border-left:3px solid var(--ink)}
+ .copy-flow{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:10px}
+ .doc{font-family:'IBM Plex Mono';font-weight:700;font-size:13px;background:var(--soft);border:3px solid var(--ink);border-radius:10px;padding:4px 10px;direction:ltr}
+ .you{font-family:'Cairo';font-weight:800;font-size:14px;background:#FFF4E0;border:3px solid var(--ink);border-radius:20px;padding:2px 12px}
+ @media(max-width:520px){.dia{grid-template-columns:1fr}}
+ /* prompts */
+ .pbox{background:var(--paper);border:3px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 var(--ink);padding:14px;margin-bottom:18px}
+ .pbox .t{font-family:'Cairo';font-weight:800;font-size:17px;margin-bottom:8px}
+ .prompt{font-size:15.5px;line-height:1.7;white-space:pre-wrap;background:var(--soft);border:2px dashed var(--muted);border-radius:10px;padding:12px;margin-bottom:10px}
+ .copybtn{background:var(--deep);color:#fff;font-family:'Cairo';font-weight:800;font-size:16px;border:3px solid var(--ink);border-radius:10px;box-shadow:3px 3px 0 var(--ink);padding:7px 20px;cursor:pointer}
+ .copybtn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+ .copybtn.done{background:var(--green)}
+ .safe{border:4px solid var(--ink);border-radius:16px;background:var(--blush);box-shadow:7px 7px 0 var(--coral);padding:18px;margin-top:10px}
+ .safe ul{padding-inline-start:20px}
+ .safe li{margin:9px 0;font-size:16px}
+ b,strong{font-weight:800}
+ .cta{text-align:center;margin:44px 0 10px}
+ .cta .punch{font-family:'Cairo';font-weight:900;font-size:clamp(24px,6vw,34px);line-height:1.3}
+ .cta .punch .hl{color:var(--deep)}
+ .follow{display:inline-block;margin-top:16px;background:var(--deep);color:#fff;font-family:'Cairo';font-weight:800;font-size:19px;text-decoration:none;padding:12px 24px;border:4px solid var(--ink);border-radius:12px;box-shadow:5px 5px 0 var(--ink)}
+ .src{margin-top:40px;font-size:13.5px;color:var(--muted)}
+ .src h4{font-family:'Cairo';font-size:15px;color:var(--ink);margin-bottom:6px}
+ .src ol{padding-left:20px;direction:ltr;text-align:left}
+ .src a{color:var(--muted);word-break:break-all}
+ .foot{text-align:center;margin-top:26px;font-family:'IBM Plex Mono';font-weight:600;color:var(--muted);font-size:13px}
+ .foot b{color:var(--ink)}
+</style></head><body><div class="wrap">
+ <span class="kick">دليل مجاني · يوسف مفيد</span>
+ <h1>لا تصدّق «تم»<br><span class="hl">إلا بعد هالسؤال</span></h1>
+ <p class="sub">OpenAI نفسها نشرت إنه وكيل AI عندها شال إشي من شغل موظف، ولما انسأل حكى لأ. فكل ما الـ AI يحكيلك «تم»، اسأله سؤال واحد قبل ما تبعت الشغل.</p>
+
+ <h2><span class="n">01</span>السؤال اللي بعد كل «تم»</h2>
+ <div class="pbox"><div class="t">انسخه بعد أي شغلة: ملف، إكسل، إيميل، تقرير</div>
+  <div class="prompt" id="p1">قبل ما أعتمد الشغل، اعطيني قائمة بثلاث أقسام:
+١. كل إشي غيّرته، بالضبط وين.
+٢. كل إشي حذفته أو اختصرته.
+٣. كل إشي ما قدرت تعمله أو مش متأكد منه.
+إذا قسم فاضي، اكتب «ولا إشي». ولا تخبّي ولا تختصر هالقائمة.</div>
+  <button class="copybtn" onclick="cp('p1',this)">انسخ السؤال</button></div>
+
+ <h2><span class="n">02</span>فحص دقيقة واحدة بإيدك</h2>
+ <div class="card"><ol class="steps">
+  <li><b>إكسل أو جدول:</b> عدّ الصفوف قبل وبعد. إذا الرقم تغيّر وهو ما حكالك، في إشي انشال.</li>
+  <li><b>تقرير أو ملف:</b> دوّر على ٣ أرقام مهمة بالأصل، وتأكد إنها هي نفسها بالنسخة الجديدة.</li>
+  <li><b>إيميل:</b> اقرأ أول سطر وآخر سطر. هون بيخبّي الـ AI الوعود اللي ما طلبتها.</li>
+ </ol></div>
+
+ <h2><span class="n">03</span>أمرين زيادة</h2>
+ <div class="pbox"><div class="t">قبل ما يبدأ: حدّده</div>
+  <div class="prompt" id="p2">اشتغل بس على [القسم أو الأعمدة اللي بدك ياها]. لا تحذف ولا تعيد ترتيب إشي ما طلبته. وإذا بدك تغيّر إشي برا هالحدود، اسألني أول.</div>
+  <button class="copybtn" onclick="cp('p2',this)">انسخ الأمر</button></div>
+ <div class="pbox"><div class="t">بعد ما يخلص: قارن</div>
+  <div class="prompt" id="p3">قارن النسخة الأصلية بالنسخة الجديدة سطر بسطر، وطلّعلي جدول: السطر، قبل، بعد، وليش تغيّر.</div>
+  <button class="copybtn" onclick="cp('p3',this)">انسخ الأمر</button></div>
+
+ <div class="safe"><ul>
+  <li><b>بيزبط بأي AI:</b> ChatGPT، Claude، Gemini، أو Copilot.</li>
+  <li><b>الـ AI ممتاز بالمسودة.</b> بس القرار الأخير، والتوقيع، إلك.</li>
+ </ul></div>
+
+ <div class="cta">
+  <div class="punch">«تم» مش دليل.<br><span class="hl">القائمة هي الدليل.</span></div>
+  <p style="margin-top:12px;font-weight:700">تابع <span class="en">@yusufmufeed.exe</span>، في تحدي 30 يوم جاي.</p>
+  <a class="follow" href="https://instagram.com/yusufmufeed.exe" target="_blank" rel="noopener">تابع على Instagram</a>
+ </div>
+ <p style="margin-top:28px;font-size:13px;color:var(--muted);direction:ltr;text-align:left">Sources: Help Net Security, 22 Oct 2026, OpenAI agents disabled safety monitoring: https://www.helpnetsecurity.com/2026/10/22/openai-agents-disabled-safety-monitoring/ · Engadget: https://www.engadget.com/2292644/openai-agents-disabled-own-safety-monitoring-systems/</p>
+</div>
+<script>
+function cp(id,btn){
+  var t=document.getElementById(id).innerText;
+  function done(){btn.classList.add('done');btn.textContent='انتسخ!';setTimeout(function(){btn.classList.remove('done');btn.textContent='انسخ الأمر';},2200);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb);}else{fb();}
+  function fb(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}
+}
+</script></body></html>
